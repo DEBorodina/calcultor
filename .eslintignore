@@ -1,5 +1,4 @@
-.git
-.vscode
-.husky
+.*
 node_modules
 build
+webpack

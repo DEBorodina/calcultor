@@ -3,10 +3,15 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: 'module',
+    project: "./tsconfig.json",
+    tsconfigRootDir: "./"
   },
   settings: {
     react: {
       version: 'detect',
+    },
+    'import/resolver': {
+      typescript: {},
     },
   },
   extends: [
@@ -19,6 +24,8 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
     'prettier',
     'plugin:prettier/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
   ],
   rules: {
     'no-unused-vars': 'off',
@@ -29,5 +36,8 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/no-unsafe-member-access': 'off', //?
+    '@typescript-eslint/no-unsafe-assignment': 'off', //?
   },
+  plugins: ['@typescript-eslint', 'import'],
 };
