@@ -36,8 +36,9 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
-    '@typescript-eslint/no-unsafe-member-access': 'off', //?
-    '@typescript-eslint/no-unsafe-assignment': 'off', //?
+    '@typescript-eslint/no-unsafe-assignment': 'off',
+    '@typescript-eslint/no-unsafe-member-access': 'off',
+    '@typescript-eslint/no-unsafe-return':'off',
   },
   plugins: ['@typescript-eslint', 'import'],
 };

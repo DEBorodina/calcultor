@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Display = styled.div`
   width: 95%;
-  border-bottom: 2px solid #707070;
+  border-bottom: 2px solid ${(props): string => props.theme.mainColor};
   margin: 0 auto;
   padding: 10px;
   height: 80px;
