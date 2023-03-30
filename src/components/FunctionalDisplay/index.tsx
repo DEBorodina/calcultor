@@ -1,11 +1,19 @@
 import React from 'react';
 import { CurrentData, Display, PreviousData } from './styles';
 
-const FunctionalDisplay: React.FC = () => {
+export interface FunctionalDisplayProps {
+  result: string;
+  equation: string;
+}
+
+const FunctionalDisplay: React.FC<FunctionalDisplayProps> = ({
+  result,
+  equation,
+}) => {
   return (
     <Display>
-      <PreviousData>3+4=</PreviousData>
-      <CurrentData>7</CurrentData>
+      <PreviousData>{result ? equation : ''}</PreviousData>
+      <CurrentData>{result && equation}</CurrentData>
     </Display>
   );
 };

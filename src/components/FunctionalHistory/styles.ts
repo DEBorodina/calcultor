@@ -1,3 +1,4 @@
+import { ArrowDown } from '@/styles/common';
 import styled, { css } from 'styled-components';
 
 export const ScrollWrapper = css`
@@ -7,9 +8,8 @@ export const ScrollWrapper = css`
     width: 10px;
   }
   &::-webkit-scrollbar-thumb {
-    background-color: #707070;
+    background-color: ${(props): string => props.theme.mainColor};
     width: 10px;
-    height: 20px;
     border-radius: 5px;
   }
 `;
@@ -23,7 +23,7 @@ export const History = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  border-left: 1px solid #707070;
+  border-left: 1px solid ${(props): string => props.theme.mainColor};
 `;
 
 export const HistoryWithScroll = styled(History)`
@@ -32,12 +32,12 @@ export const HistoryWithScroll = styled(History)`
 
 export const ShowButton = styled.button`
   margin-bottom: 30px;
-  width: 120px;
+  border: none;
+  width: 150px;
   height: 30px;
-  border: 1px solid #707070;
-  border-radius: 10px;
   font-size: 24px;
-  background-color: #ffffff;
+  background-color: ${(props): string => props.theme.backgroundColor};
+  ${ArrowDown}
 `;
 
 export const HistoryList = styled.ul`

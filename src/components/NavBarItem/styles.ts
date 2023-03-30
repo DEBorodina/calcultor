@@ -10,6 +10,7 @@ interface NavBarLinkProps {
 }
 
 export const NavBarLink = styled(Link)<NavBarLinkProps>`
-  color: ${({ active }) => (active == 'true' ? '#ffffff' : '#b1b1b1')};
+  opacity: ${({ active }) => (active == 'true' ? 1 : 0.6)};
+  color: ${(props): string => props.theme.backgroundColor};
   font-size: 16px;
 `;
