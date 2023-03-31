@@ -8,4 +8,6 @@ export const Key = styled.button`
   border-radius: 10px;
   font-size: 26px;
   font-weight: 100;
+   color:${(props) => props.theme.fontColor}
+}
 `;

@@ -5,10 +5,12 @@ export const themes = {
     mainColor: '#424242',
     buttonColor: '#f2f2f2',
     backgroundColor: '#ffffff',
+    fontColor: '#000000',
   },
   dark: {
-    mainColor: '#25231f',
-    buttonColor: '#c4baab',
-    backgroundColor: '#aba295',
+    mainColor: '#545454',
+    buttonColor: '#323232',
+    backgroundColor: '#242424',
+    fontColor: '#ededed',
   },
 };

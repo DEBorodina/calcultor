@@ -10,8 +10,8 @@ export const ArrowDown = css`
     transform: translateY(-50%) rotate(45deg);
     width: 6px;
     height: 6px;
-    border-right: 2px solid ${(props): string => props.theme.mainColor};
-    border-bottom: 2px solid ${(props): string => props.theme.mainColor};
+    border-right: 2px solid ${(props): string => props.theme.fontColor};
+    border-bottom: 2px solid ${(props): string => props.theme.fontColor};
   }
 `;
 

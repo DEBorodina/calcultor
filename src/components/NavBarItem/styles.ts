@@ -11,6 +11,6 @@ interface NavBarLinkProps {
 
 export const NavBarLink = styled(Link)<NavBarLinkProps>`
   opacity: ${({ active }) => (active == 'true' ? 1 : 0.6)};
-  color: ${(props): string => props.theme.backgroundColor};
+  color: #ffffff;
   font-size: 16px;
 `;

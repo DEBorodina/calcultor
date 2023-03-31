@@ -24,6 +24,8 @@ export const History = styled.div`
   align-items: center;
   justify-content: space-between;
   border-left: 1px solid ${(props): string => props.theme.mainColor};
+   color:${(props) => props.theme.fontColor}
+}
 `;
 
 export const HistoryWithScroll = styled(History)`
@@ -36,6 +38,7 @@ export const ShowButton = styled.button`
   width: 150px;
   height: 30px;
   font-size: 24px;
+  color: ${(props) => props.theme.fontColor};
   background-color: ${(props): string => props.theme.backgroundColor};
   ${ArrowDown}
 `;
@@ -50,5 +53,5 @@ export const HistoryListItem = styled.li`
   display: flex;
   align-items: center;
   width: 100%;
-  border-bottom: 1px solid #707070;
+  border-bottom: 1px solid ${(props): string => props.theme.mainColor};
 `;
