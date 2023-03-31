@@ -1,30 +1,57 @@
 import React from 'react';
 import { KeyPad } from './styles';
 import FunctionalKey from '@/components/FunctionalKey';
+import { keys } from '@/constants/keys';
 
-const FunctionalKeypad: React.FC = () => {
+export interface FunctionalKeypadProps {
+  handleKeyPress: (key: string) => void;
+  handleEqualPress: () => void;
+  handleCPress: () => void;
+  handleCEPress: () => void;
+}
+
+const FunctionalKeypad: React.FC<FunctionalKeypadProps> = ({
+  handleEqualPress,
+  handleKeyPress,
+  handleCPress,
+  handleCEPress,
+}) => {
+  const handleClick =
+    (key: string): (() => void) =>
+    () => {
+      handleKeyPress(key);
+    };
+
   return (
     <KeyPad>
-      <FunctionalKey>C</FunctionalKey>
-      <FunctionalKey>7</FunctionalKey>
-      <FunctionalKey>8</FunctionalKey>
-      <FunctionalKey>9</FunctionalKey>
-      <FunctionalKey>*</FunctionalKey>
-      <FunctionalKey>-</FunctionalKey>
-      <FunctionalKey>4</FunctionalKey>
-      <FunctionalKey>5</FunctionalKey>
-      <FunctionalKey>6</FunctionalKey>
-      <FunctionalKey>\</FunctionalKey>
-      <FunctionalKey>+</FunctionalKey>
-      <FunctionalKey>1</FunctionalKey>
-      <FunctionalKey>2</FunctionalKey>
-      <FunctionalKey>3</FunctionalKey>
-      <FunctionalKey>=</FunctionalKey>
-      <FunctionalKey>.</FunctionalKey>
-      <FunctionalKey>(</FunctionalKey>
-      <FunctionalKey>0</FunctionalKey>
-      <FunctionalKey>)</FunctionalKey>
-      <FunctionalKey>CE</FunctionalKey>
+      {keys.map((key) => {
+        switch (key) {
+          case '=':
+            return (
+              <FunctionalKey key={key} handleClick={handleEqualPress}>
+                {key}
+              </FunctionalKey>
+            );
+          case 'C':
+            return (
+              <FunctionalKey key={key} handleClick={handleCPress}>
+                {key}
+              </FunctionalKey>
+            );
+          case 'CE':
+            return (
+              <FunctionalKey key={key} handleClick={handleCEPress}>
+                {key}
+              </FunctionalKey>
+            );
+          default:
+            return (
+              <FunctionalKey key={key} handleClick={handleClick(key)}>
+                {key}
+              </FunctionalKey>
+            );
+        }
+      })}
     </KeyPad>
   );
 };

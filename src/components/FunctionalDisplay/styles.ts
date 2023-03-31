@@ -14,8 +14,13 @@ export const Display = styled.div`
 
 export const PreviousData = styled.p`
   font-size: 16px;
+   color:${(props) => props.theme.fontColor};
+   opacity:0.9;
+}
 `;
 
 export const CurrentData = styled.p`
   font-size: 32px;
+  color:${(props) => props.theme.fontColor};
+}
 `;

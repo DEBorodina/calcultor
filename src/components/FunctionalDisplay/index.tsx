@@ -13,7 +13,7 @@ const FunctionalDisplay: React.FC<FunctionalDisplayProps> = ({
   return (
     <Display>
       <PreviousData>{result ? equation : ''}</PreviousData>
-      <CurrentData>{result && equation}</CurrentData>
+      <CurrentData>{result ? result : equation ? equation : 0}</CurrentData>
     </Display>
   );
 };

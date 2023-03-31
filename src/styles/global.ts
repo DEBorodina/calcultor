@@ -8,5 +8,4 @@ export default createGlobalStyle`
     list-style: none;
     text-decoration: none;
     font-family: 'Helvetica Neue', sans-serif;
-}
 `;

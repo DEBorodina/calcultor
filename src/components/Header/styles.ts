@@ -19,7 +19,7 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  color: ${(props): string => props.theme.backgroundColor};
+  color: #ffffff;
   opacity: 0.9;
   font-weight: 300;
 `;

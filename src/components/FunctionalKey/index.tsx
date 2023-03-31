@@ -3,10 +3,14 @@ import { Key } from './styles';
 
 export interface FunctionalKeyProps {
   children: string;
+  handleClick: () => void;
 }
 
-const FunctionalKey: React.FC<FunctionalKeyProps> = ({ children }) => {
-  return <Key>{children}</Key>;
+const FunctionalKey: React.FC<FunctionalKeyProps> = ({
+  children,
+  handleClick,
+}) => {
+  return <Key onClick={handleClick}>{children}</Key>;
 };
 
 export default FunctionalKey;

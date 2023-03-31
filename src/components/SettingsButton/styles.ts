@@ -4,6 +4,7 @@ export const StyledSettingsButton = styled.button`
   width: 200px;
   height: 40px;
   border: 1px solid ${(props): string => props.theme.mainColor};
+  color: ${(props) => props.theme.fontColor};
   background-color: ${(props): string => props.theme.buttonColor};
   border-radius: 5px;
   font-size: 16px;
