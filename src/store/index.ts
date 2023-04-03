@@ -1,7 +1,15 @@
-import { applyMiddleware, createStore } from 'redux';
+import { createStore } from 'redux';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 import { rootReducer } from './reducers';
-import { load, save } from 'redux-localstorage-simple';
 
-const createStoreWithMiddleware = applyMiddleware(save())(createStore);
+const persistConfig = {
+  key: 'history',
+  storage,
+  whitelist: ['history'],
+};
 
-export const store = createStoreWithMiddleware(rootReducer, load());
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+export const store = createStore(persistedReducer);
+export const persistor = persistStore(store);
