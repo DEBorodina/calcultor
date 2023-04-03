@@ -2,7 +2,8 @@ import { StyledSettingsButton } from './styles';
 import React from 'react';
 
 export interface SettingsButtonProps {
-  children: string | React.ReactNode;
+  children?: string | React.ReactNode;
+  onClick?: () => void;
 }
 
 const SettingsButton: React.FC<SettingsButtonProps> = ({

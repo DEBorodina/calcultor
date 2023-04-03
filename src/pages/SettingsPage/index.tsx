@@ -1,7 +1,6 @@
 import Header from '@/components/Header';
 import { Container } from './styles';
 import React, { useContext } from 'react';
-import SettingsButton from '@/components/SettingsButton';
 import DropDown, { Option } from '@/components/DropDown';
 import { themes } from '@/constants/themes';
 import {
@@ -9,6 +8,7 @@ import {
   ThemeContextInterface,
 } from '@/components/GlobalThemeProvider';
 import { Page } from '@/styles/common';
+import ClearHistoryButton from '@/components/ClearHistoryButton';
 
 const SettingsPage: React.FC = () => {
   const { theme: currentTheme, handleSetTheme }: ThemeContextInterface =
@@ -29,7 +29,7 @@ const SettingsPage: React.FC = () => {
           label={'Choose theme'}
           handleChooseOption={handleSetTheme}
         ></DropDown>
-        <SettingsButton>Clear all history</SettingsButton>
+        <ClearHistoryButton />
       </Container>
     </Page>
   );
