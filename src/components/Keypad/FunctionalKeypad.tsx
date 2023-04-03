@@ -1,16 +1,16 @@
 import React from 'react';
 import { KeyPad } from './styles';
-import FunctionalKey from '@/components/FunctionalKey';
+import Key from '@/components/Key/FunctionalKey';
 import { keys } from '@/constants/keys';
 
-export interface FunctionalKeypadProps {
+export interface KeypadProps {
   handleKeyPress: (key: string) => void;
   handleEqualPress: () => void;
   handleCPress: () => void;
   handleCEPress: () => void;
 }
 
-const FunctionalKeypad: React.FC<FunctionalKeypadProps> = ({
+const FunctionalKeypad: React.FC<KeypadProps> = ({
   handleEqualPress,
   handleKeyPress,
   handleCPress,
@@ -28,27 +28,27 @@ const FunctionalKeypad: React.FC<FunctionalKeypadProps> = ({
         switch (key) {
           case '=':
             return (
-              <FunctionalKey key={key} handleClick={handleEqualPress}>
+              <Key key={key} handleClick={handleEqualPress}>
                 {key}
-              </FunctionalKey>
+              </Key>
             );
           case 'C':
             return (
-              <FunctionalKey key={key} handleClick={handleCPress}>
+              <Key key={key} handleClick={handleCPress}>
                 {key}
-              </FunctionalKey>
+              </Key>
             );
           case 'CE':
             return (
-              <FunctionalKey key={key} handleClick={handleCEPress}>
+              <Key key={key} handleClick={handleCEPress}>
                 {key}
-              </FunctionalKey>
+              </Key>
             );
           default:
             return (
-              <FunctionalKey key={key} handleClick={handleClick(key)}>
+              <Key key={key} handleClick={handleClick(key)}>
                 {key}
-              </FunctionalKey>
+              </Key>
             );
         }
       })}

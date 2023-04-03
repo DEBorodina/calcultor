@@ -8,7 +8,7 @@ import {
 import { formatToPrint, formatToSolve } from './formater';
 import { isNumeric } from './validator';
 
-const findNewIndex = (equation: string, index: number): number => {
+const findNewIndexAfterBracket = (equation: string, index: number): number => {
   let leftBrackets = 1;
   let rightBrackets = 0;
   for (let j = index + 1; j < equation.length; j++) {
@@ -23,7 +23,7 @@ const findNewIndex = (equation: string, index: number): number => {
   return index;
 };
 
-export const getTheResult = (equation: string): string => {
+export const getResult = (equation: string): string => {
   return formatToPrint(equationSolver(formatToSolve(equation), 0));
 };
 
@@ -31,6 +31,7 @@ const equationSolver = (equation: string, currentIndex: number): number => {
   const calculator = new Calculator();
   let currentNumber: number | string = '';
   let sign = '+';
+
   for (let index = currentIndex; index < equation.length; index++) {
     if (isNumeric(equation[index])) {
       currentNumber += equation[index];
@@ -38,11 +39,12 @@ const equationSolver = (equation: string, currentIndex: number): number => {
 
     if (equation[index] === '(') {
       currentNumber = equationSolver(equation, index + 1);
-      index = findNewIndex(equation, index);
+      index = findNewIndexAfterBracket(equation, index);
     }
 
     if (!isNumeric(equation[index]) || index == equation.length - 1) {
       const int = +currentNumber;
+
       switch (sign) {
         case '+':
           calculator.executeCommand(new AddCommand(int));
