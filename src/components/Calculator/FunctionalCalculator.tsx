@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Container } from './styles';
-import FunctionalDisplay from '@/components/FunctionalDisplay';
-import FunctionalKeypad from '@/components/FunctionalKeypad';
-import { getTheResult } from '@/utils/solver';
+import FunctionalDisplay from '@/components/Display/FunctionalDisplay';
+import FunctionalKeypad from '@/components/Keypad/FunctionalKeypad';
 import { validateEquation } from '@/utils/validator';
 import { useDispatch } from 'react-redux';
 import { addToFunctionalHistory } from '@/store/actions/historyActionCreators';
+import { getResult } from '@/utils/solver';
 
-const getErrorMessage = (e: unknown): string => {
+export const MAX_LENGHT = 20;
+
+export const getErrorMessage = (e: unknown): string => {
   let message = '';
   if (e instanceof Error) message = e.message;
   else message = String(e);
@@ -24,14 +26,14 @@ const FunctionalCalculator: React.FC = () => {
       setEquation('');
       setResult('');
     }
-    if ((equation + key).length <= 20)
+    if ((equation + key).length <= MAX_LENGHT)
       setEquation((equation) => equation + key);
   };
 
   const handleEqualPress = (): void => {
     try {
       validateEquation(equation);
-      const resValue: string = getTheResult(equation);
+      const resValue: string = getResult(equation);
       setResult('=' + resValue);
       dispatch(addToFunctionalHistory(equation + '=' + resValue));
     } catch (e) {

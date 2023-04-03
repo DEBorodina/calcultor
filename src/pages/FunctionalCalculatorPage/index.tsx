@@ -1,7 +1,7 @@
-import FunctionalCalculator from '@/components/FunctionalCalculator';
+import FunctionalCalculator from '@/components/Calculator/FunctionalCalculator';
 import Header from '@/components/Header';
 import { Container } from './style';
-import FunctionalHistory from '@/components/FunctionalHistory';
+import FunctionalHistory from '@/components/History/FunctionalHistory';
 import { Page } from '@/styles/common';
 
 const FunctionalCalculatorPage = () => {

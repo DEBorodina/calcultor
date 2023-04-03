@@ -13,10 +13,13 @@ const FunctionalHistory: React.FC = () => {
   const history: string[] = useSelector(
     (state: GlobalStore) => state.history.funcHistory
   );
+
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
   const handleIsOpen = (): void => {
     setIsOpen(!isOpen);
   };
+
   return (
     <HistoryWithScroll>
       <ShowButton onClick={handleIsOpen}>History</ShowButton>
