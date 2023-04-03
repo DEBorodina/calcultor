@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+export interface StyledSettingsButtonProps {
+  onClick: () => void;
+}
+
 export const StyledSettingsButton = styled.button`
   width: 200px;
   height: 40px;

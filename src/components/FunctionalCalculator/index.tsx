@@ -4,6 +4,8 @@ import FunctionalDisplay from '@/components/FunctionalDisplay';
 import FunctionalKeypad from '@/components/FunctionalKeypad';
 import { getTheResult } from '@/utils/solver';
 import { validateEquation } from '@/utils/validator';
+import { useDispatch } from 'react-redux';
+import { addToFunctionalHistory } from '@/store/actions/historyActionCreators';
 
 const getErrorMessage = (e: unknown): string => {
   let message = '';
@@ -15,6 +17,7 @@ const getErrorMessage = (e: unknown): string => {
 const FunctionalCalculator: React.FC = () => {
   const [equation, setEquation] = useState<string>('');
   const [result, setResult] = useState<string>('');
+  const dispatch = useDispatch();
 
   const handleKeyPress = (key: string): void => {
     if (result) {
@@ -30,14 +33,16 @@ const FunctionalCalculator: React.FC = () => {
       validateEquation(equation);
       const resValue: string = getTheResult(equation);
       setResult('=' + resValue);
+      dispatch(addToFunctionalHistory(equation + '=' + resValue));
     } catch (e) {
       setResult(getErrorMessage(e));
     }
   };
 
   const handleCPress = (): void => {
-    if (equation.length > 0) {
+    if (!result && equation.length > 0) {
       setEquation(equation.slice(0, equation.length - 1));
+    } else {
       setResult('');
     }
   };

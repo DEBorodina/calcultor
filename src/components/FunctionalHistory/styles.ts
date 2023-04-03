@@ -15,14 +15,13 @@ export const ScrollWrapper = css`
 `;
 
 export const History = styled.div`
-  padding: 20px 20px 20px 0;
+  padding: 20px 20px 20px 20px;
   height: 100%;
   width: 100%;
   grid-area: sd;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   border-left: 1px solid ${(props): string => props.theme.mainColor};
    color:${(props) => props.theme.fontColor}
 }
@@ -35,7 +34,8 @@ export const HistoryWithScroll = styled(History)`
 export const ShowButton = styled.button`
   margin-bottom: 30px;
   border: none;
-  width: 150px;
+  width: 120px;
+  text-align: left;
   height: 30px;
   font-size: 24px;
   color: ${(props) => props.theme.fontColor};
@@ -54,4 +54,9 @@ export const HistoryListItem = styled.li`
   align-items: center;
   width: 100%;
   border-bottom: 1px solid ${(props): string => props.theme.mainColor};
+`;
+
+export const Text = styled.p`
+  width: 115px;
+  text-align: left;
 `;

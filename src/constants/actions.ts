@@ -1,0 +1,2 @@
+export const ADD_TO_FUNC_HISTORY = 'ADD_TO_FUNC_HISTORY';
+export const CLEAR_HISTORY = 'CLEAR_HISTORY';
