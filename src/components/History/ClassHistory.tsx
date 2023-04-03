@@ -31,7 +31,7 @@ class ClassHistory extends Component<ClassHistoryProps, ClassHistoryState> {
       <HistoryWithScroll>
         <ShowButton onClick={this.handleIsOpen}>History</ShowButton>
         {this.state.isOpen &&
-          (history.length > 0 ? (
+          (this.props.history.length > 0 ? (
             <HistoryList>
               {this.props.history.map((item, index) => (
                 <HistoryListItem key={index}>{item}</HistoryListItem>
