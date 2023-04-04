@@ -16,4 +16,14 @@ export const StyledSettingsButton = styled.button`
   display: flex;
   align-items: center;
   padding-left: 20px;
+  &:hover {
+    transition: 0.2s;
+    filter: brightness(88%);
+    cursor: pointer;
+  }
+  &:active {
+    transition: 0.2s;
+    filter: brightness(95%);
+    cursor: pointer;
+  }
 `;

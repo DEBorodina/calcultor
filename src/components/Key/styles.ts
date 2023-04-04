@@ -8,6 +8,16 @@ export const Key = styled.button`
   border-radius: 10px;
   font-size: 36px;
   font-weight: 100;
-   color:${(props) => props.theme.fontColor}
+  color: ${(props) => props.theme.fontColor};
+  &:hover{
+      transition: .2s;
+      filter: brightness(88%);
+      cursor: pointer;
+  }
+   &:active{
+      transition: .2s;
+      filter: brightness(95%);
+      cursor: pointer;
+  }
 }
 `;
