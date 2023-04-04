@@ -40,6 +40,9 @@ export const ShowButton = styled.button`
   font-size: 24px;
   color: ${(props) => props.theme.fontColor};
   background-color: ${(props): string => props.theme.backgroundColor};
+  &:hover {
+    cursor: pointer;
+  }
   ${ArrowDown}
 `;
 
