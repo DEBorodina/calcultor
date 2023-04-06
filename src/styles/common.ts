@@ -39,7 +39,7 @@ export const PageContainer = styled.div`
       '.'
       'sd';
     grid-template-columns: 1fr;
-    grid-template-rows: 70px 500px 40px 1fr;
+    grid-template-rows: 70px 400px 40px 1fr;
   }
 `;
 

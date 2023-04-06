@@ -3,22 +3,28 @@ import {
   CLEAR_HISTORY,
   ADD_TO_CLASS_HISTORY,
 } from '@/constants/actions';
-import { Action, AnyAction } from 'redux';
+import {
+  AddToClassHistoryAction,
+  AddToFunctionalHistoryAction,
+  ClearAllHistoryAction,
+} from './types';
 
-export const clearAllHistory = (): Action => {
+export const clearAllHistory = (): ClearAllHistoryAction => {
   return {
     type: CLEAR_HISTORY,
   };
 };
 
-export const addToFunctionalHistory = (payload: string): AnyAction => {
+export const addToFunctionalHistory = (
+  payload: string
+): AddToFunctionalHistoryAction => {
   return {
     type: ADD_TO_FUNC_HISTORY,
     payload,
   };
 };
 
-export const addToClassHistory = (payload: string): AnyAction => {
+export const addToClassHistory = (payload: string): AddToClassHistoryAction => {
   return {
     type: ADD_TO_CLASS_HISTORY,
     payload,

@@ -6,9 +6,9 @@ import {
   ShowButton,
   Text,
 } from './styles';
-import { GlobalStore } from '@/store/reducers';
 import { ConnectedProps, connect } from 'react-redux';
 import { ClassHistoryState } from './types';
+import { GlobalStore } from '@/store/reducers/types';
 
 class ClassHistory extends Component<ClassHistoryProps, ClassHistoryState> {
   constructor(props: ClassHistoryProps) {

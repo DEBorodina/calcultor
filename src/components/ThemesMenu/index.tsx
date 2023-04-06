@@ -3,8 +3,8 @@ import DropDown from '../DropDown';
 import { Option } from '../DropDown/types';
 import { theme, themes } from '@/constants/themes';
 import { useSelector, useDispatch } from 'react-redux';
-import { GlobalStore } from '@/store/reducers';
 import { changeTheme } from '@/store/actions/themeActionCreators';
+import { GlobalStore } from '@/store/reducers/types';
 
 const ThemesMenu: React.FC = () => {
   const currentTheme: theme = useSelector(

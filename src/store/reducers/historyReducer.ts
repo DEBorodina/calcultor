@@ -3,12 +3,8 @@ import {
   ADD_TO_FUNC_HISTORY,
   CLEAR_HISTORY,
 } from '@/constants/actions';
-import { AnyAction } from 'redux';
-
-export interface HistoryState {
-  funcHistory: string[];
-  classHistory: string[];
-}
+import { HistoryActionTypes } from '../actions/types';
+import { HistoryState } from './types';
 
 const initialState: HistoryState = {
   funcHistory: [],
@@ -17,7 +13,7 @@ const initialState: HistoryState = {
 
 export const historyReducer = (
   state: HistoryState = initialState,
-  action: AnyAction
+  action: HistoryActionTypes
 ): HistoryState => {
   switch (action.type) {
     case ADD_TO_FUNC_HISTORY:

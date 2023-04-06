@@ -1,11 +1,6 @@
 import { combineReducers } from 'redux';
-import { HistoryState, historyReducer } from './historyReducer';
-import { ThemeState, themeReducer } from './themeReducer';
-
-export interface GlobalStore {
-  history: HistoryState;
-  theme: ThemeState;
-}
+import { historyReducer } from './historyReducer';
+import { themeReducer } from './themeReducer';
 
 export const rootReducer = combineReducers({
   history: historyReducer,

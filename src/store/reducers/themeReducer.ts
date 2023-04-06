@@ -1,10 +1,6 @@
 import { CHANGE_THEME } from '@/constants/actions';
-import { theme } from '@/constants/themes';
-import { AnyAction } from 'redux';
-
-export interface ThemeState {
-  theme: theme;
-}
+import { ThemeActionTypes } from '../actions/types';
+import { ThemeState } from './types';
 
 const initialState: ThemeState = {
   theme: 'light',
@@ -12,7 +8,7 @@ const initialState: ThemeState = {
 
 export const themeReducer = (
   state: ThemeState = initialState,
-  action: AnyAction
+  action: ThemeActionTypes
 ): ThemeState => {
   switch (action.type) {
     case CHANGE_THEME:

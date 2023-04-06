@@ -5,7 +5,7 @@ import {
   MultiplyCommand,
   SubtractCommand,
 } from './commands';
-import { formatToPrint, formatToSolve } from './formater';
+import { formatToPrint } from './formater';
 import { isNumeric } from './validator';
 
 const findNewIndexAfterBracket = (equation: string, index: number): number => {
@@ -24,13 +24,16 @@ const findNewIndexAfterBracket = (equation: string, index: number): number => {
 };
 
 export const getResult = (equation: string): string => {
-  return formatToPrint(equationSolver(formatToSolve(equation), 0));
+  return formatToPrint(equationSolver(equation, 0));
 };
 
 const equationSolver = (equation: string, currentIndex: number): number => {
   const calculator = new Calculator();
   let currentNumber: number | string = '';
   let sign = '+';
+
+  equation = equation.replace(/(?<=[\d)])\(/g, '*('); // 2(3+2) => 2*(3+2)
+  equation = equation.replace(/\)(?=[\d()])/g, ')*'); // (1+2)2 => (1+2)*2
 
   for (let index = currentIndex; index < equation.length; index++) {
     if (isNumeric(equation[index])) {
