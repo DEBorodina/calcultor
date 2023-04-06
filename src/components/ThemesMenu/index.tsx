@@ -1,5 +1,6 @@
 import React from 'react';
-import DropDown, { Option } from '../DropDown';
+import DropDown from '../DropDown';
+import { Option } from '../DropDown/types';
 import { theme, themes } from '@/constants/themes';
 import { useSelector, useDispatch } from 'react-redux';
 import { GlobalStore } from '@/store/reducers';

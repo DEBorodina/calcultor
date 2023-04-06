@@ -8,10 +8,7 @@ import {
 } from './styles';
 import { GlobalStore } from '@/store/reducers';
 import { ConnectedProps, connect } from 'react-redux';
-
-export interface ClassHistoryState {
-  isOpen: boolean;
-}
+import { ClassHistoryState } from './types';
 
 class ClassHistory extends Component<ClassHistoryProps, ClassHistoryState> {
   constructor(props: ClassHistoryProps) {

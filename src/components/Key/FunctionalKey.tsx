@@ -1,10 +1,6 @@
 import React from 'react';
 import { Key } from './styles';
-
-export interface KeyProps {
-  children: string;
-  handleClick: () => void;
-}
+import { KeyProps } from './types';
 
 const FunctionalKey: React.FC<KeyProps> = ({ children, handleClick }) => {
   return (

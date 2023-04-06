@@ -1,10 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { MenuListItem, NavBarLink } from './styles';
-
-export interface ListItemProps {
-  to: string;
-  children: string;
-}
+import { ListItemProps } from './types';
 
 const NavBarItem: React.FC<ListItemProps> = ({ to, children }) => {
   const { pathname } = useLocation();

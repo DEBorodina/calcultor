@@ -3,7 +3,7 @@ import { Component } from 'react';
 import { KeyPad } from './styles';
 import Key from '@/components/Key/ClassKey';
 import { keys } from '@/constants/keys';
-import { KeypadProps } from './FunctionalKeypad';
+import { KeypadProps } from './types';
 
 export default class ClassKeypad extends Component<KeypadProps> {
   constructor(props: KeypadProps) {

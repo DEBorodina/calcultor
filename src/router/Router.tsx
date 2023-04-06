@@ -3,6 +3,7 @@ import { ROUTE_NAMES } from '@/constants/routesNames';
 import FunctionalCalculatorPage from '@/pages/FunctionalCalculatorPage';
 import SettingsPage from '@/pages/SettingsPage';
 import ClassCalculatorPage from '@/pages/ClassCalculatorPage';
+
 export const Router: React.FC = () => {
   return (
     <Routes>

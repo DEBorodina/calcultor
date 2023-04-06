@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, StyledHeader, Title } from './styles';
 import NavBar from '../NavBar';
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <StyledHeader>
       <Container>

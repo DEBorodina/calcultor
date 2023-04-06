@@ -67,4 +67,5 @@ export const HistoryListItem = styled.li`
 export const Text = styled.p`
   width: 115px;
   text-align: left;
+  font-size: 16px;
 `;

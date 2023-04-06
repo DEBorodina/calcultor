@@ -2,13 +2,7 @@ import React from 'react';
 import { KeyPad } from './styles';
 import Key from '@/components/Key/FunctionalKey';
 import { keys } from '@/constants/keys';
-
-export interface KeypadProps {
-  handleKeyPress: (key: string) => void;
-  handleEqualPress: () => void;
-  handleCPress: () => void;
-  handleCEPress: () => void;
-}
+import { KeypadProps } from './types';
 
 const FunctionalKeypad: React.FC<KeypadProps> = ({
   handleEqualPress,

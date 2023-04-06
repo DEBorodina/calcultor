@@ -1,12 +1,12 @@
 import { Component } from 'react';
-
 import { CurrentData, Display, PreviousData } from './styles';
-import { DisplayProps } from './FunctionalDisplay';
+import { DisplayProps } from './types';
 
 export default class ClassDisplay extends Component<DisplayProps> {
   constructor(props: DisplayProps) {
     super(props);
   }
+
   render() {
     return (
       <Display>
@@ -14,11 +14,7 @@ export default class ClassDisplay extends Component<DisplayProps> {
           {this.props.result ? this.props.equation : ''}
         </PreviousData>
         <CurrentData data-cy="current-display">
-          {this.props.result
-            ? this.props.result
-            : this.props.equation
-            ? this.props.equation
-            : 0}
+          {this.props.result || this.props.equation || 0}
         </CurrentData>
       </Display>
     );

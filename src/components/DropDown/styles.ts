@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { ArrowDown, SettingsButton } from '@/styles/common';
+import { DropDownButtonProps } from './types';
 
 export const Container = styled.div`
   margin-top: 40px;
@@ -10,11 +11,6 @@ export const Label = styled.p`
   color: #70707;
   font-size: 16px;
 `;
-
-export interface DropDownButtonProps {
-  onClick: () => void;
-  isOpen: boolean;
-}
 
 export const Menu = styled.div`
   position: relative;
@@ -54,11 +50,7 @@ export const Options = styled.div`
   }
 `;
 
-export interface ItemProps {
-  onClick: () => void;
-}
-
-export const Item = styled.div<ItemProps>`
+export const Item = styled.div`
   width: 100%;
   height: 40px;
   padding: 0 20px;

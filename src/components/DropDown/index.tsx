@@ -7,17 +7,7 @@ import {
   Options,
   Menu,
 } from './styles';
-
-export interface Option {
-  option: string;
-  isActive: boolean;
-}
-
-export interface DropDownProps {
-  options: Option[];
-  label: string;
-  handleChooseOption: (...args: any[]) => void;
-}
+import { DropDownProps, Option } from './types';
 
 const DropDown: React.FC<DropDownProps> = ({
   options,
@@ -39,6 +29,7 @@ const DropDown: React.FC<DropDownProps> = ({
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
+
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
