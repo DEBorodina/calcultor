@@ -1,7 +1,6 @@
 import { Component } from 'react';
 import { Action, AnyAction, Dispatch } from 'redux';
 import { ConnectedProps, connect } from 'react-redux';
-
 import { Container } from './styles';
 import ClassDisplay from '@/components/Display/ClassDisplay';
 import ClassKeypad from '@/components/Keypad/FunctionalKeypad';

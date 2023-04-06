@@ -8,7 +8,7 @@ export interface KeyProps {
 
 const FunctionalKey: React.FC<KeyProps> = ({ children, handleClick }) => {
   return (
-    <Key onClick={handleClick} data-cy={children}>
+    <Key width={80} height={80} onClick={handleClick} data-cy={children}>
       {children}
     </Key>
   );

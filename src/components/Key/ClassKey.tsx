@@ -8,7 +8,12 @@ export default class ClassKey extends Component<KeyProps> {
   }
   render() {
     return (
-      <Key onClick={this.props.handleClick} data-cy={this.props.children}>
+      <Key
+        width={80}
+        height={80}
+        onClick={this.props.handleClick}
+        data-cy={this.props.children}
+      >
         {this.props.children}
       </Key>
     );
