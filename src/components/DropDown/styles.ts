@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import SettingsButton from '../SettingsButton';
-import { ArrowDown } from '@/styles/common';
+import { ArrowDown, SettingsButton } from '@/styles/common';
 
 export const Container = styled.div`
   margin-top: 40px;

@@ -20,3 +20,35 @@ export const Page = styled.div`
   height: 100vh;
   background-color: ${(props): string => props.theme.backgroundColor};
 `;
+
+export interface StyledButtonProps {
+  width: number;
+  height: number;
+}
+
+export const StyledButton = styled.button<StyledButtonProps>`
+  width: ${(props): number => props.width}px;
+  height: ${(props): number => props.height}px;
+  border: 1px solid ${(props): string => props.theme.mainColor};
+  color: ${(props) => props.theme.fontColor};
+  background-color: ${(props): string => props.theme.buttonColor};
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 100;
+  display: flex;
+  align-items: center;
+  &:hover {
+    transition: 0.2s;
+    filter: brightness(88%);
+    cursor: pointer;
+  }
+  &:active {
+    transition: 0.2s;
+    filter: brightness(95%);
+    cursor: pointer;
+  }
+`;
+
+export const SettingsButton = styled(StyledButton)`
+  padding-left: 20px;
+`;

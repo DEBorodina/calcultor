@@ -10,7 +10,7 @@ export const ThemeContext = createContext<ThemeContextInterface | undefined>(
   undefined
 );
 
-export interface ThemeContextInterface {
+interface ThemeContextInterface {
   handleSetTheme: (theme: theme) => void;
   theme: theme;
 }

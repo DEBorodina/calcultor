@@ -1,5 +1,5 @@
 import React from 'react';
-import SettingsButton from '../SettingsButton';
+import { SettingsButton } from '@/styles/common';
 import { useDispatch } from 'react-redux';
 import { clearAllHistory } from '@/store/actions/historyActionCreators';
 
@@ -9,7 +9,9 @@ const ClearHistoryButton: React.FC = () => {
     dispatch(clearAllHistory());
   };
   return (
-    <SettingsButton onClick={handleClick}>Clear all history</SettingsButton>
+    <SettingsButton width={200} height={40} onClick={handleClick}>
+      Clear all history
+    </SettingsButton>
   );
 };
 
