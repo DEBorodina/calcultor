@@ -29,16 +29,18 @@ class ClassHistory extends Component<ClassHistoryProps, ClassHistoryState> {
   render() {
     return (
       <HistoryWithScroll>
-        <ShowButton onClick={this.handleIsOpen}>History</ShowButton>
+        <ShowButton onClick={this.handleIsOpen} data-cy="history-button">
+          History
+        </ShowButton>
         {this.state.isOpen &&
           (this.props.history.length > 0 ? (
-            <HistoryList>
+            <HistoryList data-cy="history-list">
               {this.props.history.map((item, index) => (
                 <HistoryListItem key={index}>{item}</HistoryListItem>
               ))}
             </HistoryList>
           ) : (
-            <Text>No history yet</Text>
+            <Text data-cy="no-history">No history yet</Text>
           ))}
       </HistoryWithScroll>
     );

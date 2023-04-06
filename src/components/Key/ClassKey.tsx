@@ -7,6 +7,10 @@ export default class ClassKey extends Component<KeyProps> {
     super(props);
   }
   render() {
-    return <Key onClick={this.props.handleClick}>{this.props.children}</Key>;
+    return (
+      <Key onClick={this.props.handleClick} data-cy={this.props.children}>
+        {this.props.children}
+      </Key>
+    );
   }
 }

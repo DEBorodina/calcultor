@@ -40,13 +40,15 @@ class ClassCalculator extends Component<
   };
 
   handleEqualPress = (): void => {
-    try {
-      validateEquation(this.state.equation);
-      const resValue: string = getResult(this.state.equation);
-      this.setState({ result: '=' + resValue });
-      this.props.addToClassHistory(this.state.equation + '=' + resValue);
-    } catch (e) {
-      this.setState({ result: getErrorMessage(e) });
+    if (this.state.equation != '') {
+      try {
+        validateEquation(this.state.equation);
+        const resValue: string = getResult(this.state.equation);
+        this.setState({ result: '=' + resValue });
+        this.props.addToClassHistory(this.state.equation + '=' + resValue);
+      } catch (e) {
+        this.setState({ result: getErrorMessage(e) });
+      }
     }
   };
 

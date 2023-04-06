@@ -13,7 +13,7 @@ export default class ClassDisplay extends Component<DisplayProps> {
         <PreviousData>
           {this.props.result ? this.props.equation : ''}
         </PreviousData>
-        <CurrentData>
+        <CurrentData data-cy="current-display">
           {this.props.result
             ? this.props.result
             : this.props.equation

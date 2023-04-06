@@ -9,7 +9,9 @@ const FunctionalDisplay: React.FC<DisplayProps> = ({ result, equation }) => {
   return (
     <Display>
       <PreviousData>{result ? equation : ''}</PreviousData>
-      <CurrentData>{result ? result : equation ? equation : 0}</CurrentData>
+      <CurrentData data-cy="current-display">
+        {result ? result : equation ? equation : 0}
+      </CurrentData>
     </Display>
   );
 };

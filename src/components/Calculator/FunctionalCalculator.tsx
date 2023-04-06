@@ -31,13 +31,15 @@ const FunctionalCalculator: React.FC = () => {
   };
 
   const handleEqualPress = (): void => {
-    try {
-      validateEquation(equation);
-      const resValue: string = getResult(equation);
-      setResult('=' + resValue);
-      dispatch(addToFunctionalHistory(equation + '=' + resValue));
-    } catch (e) {
-      setResult(getErrorMessage(e));
+    if (equation != '') {
+      try {
+        validateEquation(equation);
+        const resValue: string = getResult(equation);
+        setResult('=' + resValue);
+        dispatch(addToFunctionalHistory(equation + '=' + resValue));
+      } catch (e) {
+        setResult(getErrorMessage(e));
+      }
     }
   };
 

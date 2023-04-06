@@ -22,16 +22,18 @@ const FunctionalHistory: React.FC = () => {
 
   return (
     <HistoryWithScroll>
-      <ShowButton onClick={handleIsOpen}>History</ShowButton>
+      <ShowButton onClick={handleIsOpen} data-cy="history-button">
+        History
+      </ShowButton>
       {isOpen &&
         (history.length > 0 ? (
-          <HistoryList>
+          <HistoryList data-cy="history-list">
             {history.map((item, index) => (
               <HistoryListItem key={index}>{item}</HistoryListItem>
             ))}
           </HistoryList>
         ) : (
-          <Text>No history yet</Text>
+          <Text data-cy="no-history">No history yet</Text>
         ))}
     </HistoryWithScroll>
   );

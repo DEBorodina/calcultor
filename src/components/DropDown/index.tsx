@@ -58,8 +58,12 @@ const DropDown: React.FC<DropDownProps> = ({
   return (
     <Container>
       <Label>{label}</Label>
-      <Menu ref={menu}>
-        <DropDownButton onClick={handleToggle} isOpen={isOpen}>
+      <Menu ref={menu} data-cy="drop-down-menu">
+        <DropDownButton
+          onClick={handleToggle}
+          isOpen={isOpen}
+          data-cy="drop-down-button"
+        >
           {currentOption}
         </DropDownButton>
         {isOpen && (
@@ -67,7 +71,11 @@ const DropDown: React.FC<DropDownProps> = ({
             {options.map(
               ({ option, isActive }) =>
                 !isActive && (
-                  <Item key={option} onClick={onChooseOption(option)}>
+                  <Item
+                    key={option}
+                    onClick={onChooseOption(option)}
+                    data-cy="drop-down-item"
+                  >
                     {option}
                   </Item>
                 )

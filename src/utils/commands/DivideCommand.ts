@@ -3,7 +3,7 @@ export default class {
   constructor(valueToDivide: number) {
     if (valueToDivide < 2 ** 53 - 1) this.valueToDivide = valueToDivide;
     else throw Error('Too big numbers');
-    if (valueToDivide === 0) throw new Error('Deviding by zero');
+    if (valueToDivide === 0) throw new Error('Division by zero');
   }
 
   execute(numbers: number[]): number[] {

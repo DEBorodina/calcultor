@@ -7,7 +7,11 @@ export interface KeyProps {
 }
 
 const FunctionalKey: React.FC<KeyProps> = ({ children, handleClick }) => {
-  return <Key onClick={handleClick}>{children}</Key>;
+  return (
+    <Key onClick={handleClick} data-cy={children}>
+      {children}
+    </Key>
+  );
 };
 
 export default FunctionalKey;
