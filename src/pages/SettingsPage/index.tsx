@@ -1,34 +1,17 @@
 import Header from '@/components/Header';
 import { Container } from './styles';
-import React, { useContext } from 'react';
-import DropDown, { Option } from '@/components/DropDown';
-import { themes } from '@/constants/themes';
-import {
-  ThemeContext,
-  ThemeContextInterface,
-} from '@/components/GlobalThemeProvider';
+import React from 'react';
 import { Page } from '@/styles/common';
 import ClearHistoryButton from '@/components/ClearHistoryButton';
+import ThemesMenu from '@/components/ThemesMenu';
 
 const SettingsPage: React.FC = () => {
-  const { theme: currentTheme, handleSetTheme }: ThemeContextInterface =
-    useContext(ThemeContext)!;
-
-  const themesNames: Option[] = Object.keys(themes).map((theme) => ({
-    option: theme,
-    isActive: theme === currentTheme,
-  }));
-
   return (
     <Page>
       <Header />
       <Container>
         <h1>Settings</h1>
-        <DropDown
-          options={themesNames}
-          label={'Choose theme'}
-          handleChooseOption={handleSetTheme}
-        ></DropDown>
+        <ThemesMenu />
         <ClearHistoryButton />
       </Container>
     </Page>
