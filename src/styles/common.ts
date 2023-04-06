@@ -49,7 +49,7 @@ export const StyledButton = styled.button`
   background-color: ${(props): string => props.theme.buttonColor};
   border-radius: 5px;
   font-size: 16px;
-  font-weight: 100;
+  font-weight: 300;
   display: flex;
   align-items: center;
   &:hover {
