@@ -25,6 +25,7 @@ export const History = styled.div`
   border-left: 1px solid ${(props): string => props.theme.mainColor};
   color:${(props) => props.theme.fontColor};
   @media (max-width: 540px) {
+    border-left: none;
     height: fit-content;
   }
 }

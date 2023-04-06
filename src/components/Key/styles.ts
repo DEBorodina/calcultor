@@ -9,8 +9,8 @@ export const Key = styled(StyledButton)`
   display:flex;
   justify-content:center;
   @media (max-width: 920px) {
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
   }
   @media (max-width: 280px) {
     width: 40px;
