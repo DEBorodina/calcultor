@@ -60,8 +60,6 @@ const DropDown: React.FC<DropDownProps> = ({
       <Label>{label}</Label>
       <Menu ref={menu} data-cy="drop-down-menu">
         <DropDownButton
-          width={200}
-          height={40}
           onClick={handleToggle}
           isOpen={isOpen}
           data-cy="drop-down-button"

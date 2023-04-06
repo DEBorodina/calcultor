@@ -12,7 +12,7 @@ interface NavBarLinkProps {
 export const NavBarLink = styled(Link)<NavBarLinkProps>`
   opacity: ${({ active }) => (active == 'true' ? 1 : 0.6)};
   color: #ffffff;
-  font-size: 16px;
+  font-size: 0.7em;
   &:hover {
     transition: 0.2s;
     opacity: 0.8;
