@@ -16,14 +16,17 @@ export const ScrollWrapper = css`
 
 export const History = styled.div`
   padding: 20px 20px 20px 20px;
-  height: 100%;
+  height: calc(100vh - 70px);
   width: 100%;
   grid-area: sd;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-left: 1px solid ${(props): string => props.theme.mainColor};
-   color:${(props) => props.theme.fontColor}
+  color:${(props) => props.theme.fontColor};
+  @media (max-width: 540px) {
+    height: fit-content;
+  }
 }
 `;
 
@@ -56,6 +59,7 @@ export const HistoryListItem = styled.li`
   display: flex;
   align-items: center;
   width: 100%;
+  font-size: 16px;
   border-bottom: 1px solid ${(props): string => props.theme.mainColor};
 `;
 

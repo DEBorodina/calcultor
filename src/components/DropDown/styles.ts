@@ -3,21 +3,22 @@ import { ArrowDown, SettingsButton } from '@/styles/common';
 
 export const Container = styled.div`
   margin-top: 40px;
-  position: relative;
+  height: 120px;
 `;
 
 export const Label = styled.p`
   color: #70707;
-`;
-
-export const Menu = styled.div`
-  width: fit-content;
+  font-size: 16px;
 `;
 
 export interface DropDownButtonProps {
   onClick: () => void;
   isOpen: boolean;
 }
+
+export const Menu = styled.div`
+  position: relative;
+`;
 
 export const DropDownButton = styled(SettingsButton)<DropDownButtonProps>`
   position: relative;
@@ -34,7 +35,7 @@ export const Options = styled.div`
   background-color: ${(props): string => props.theme.buttonColor};
   position: absolute;
   z-index: 1;
-  top: 65px;
+  top: 38px;
   left: 0;
   width: 200px;
   border-bottom-left-radius: 10px;
@@ -64,5 +65,6 @@ export const Item = styled.div<ItemProps>`
   display: flex;
   align-items: center;
   cursor: pointer;
+  font-size: 16px;
   border-top: 1px solid ${(props): string => props.theme.mainColor};
 `;

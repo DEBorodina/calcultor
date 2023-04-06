@@ -22,4 +22,5 @@ export const Title = styled.h1`
   color: #ffffff;
   opacity: 0.9;
   font-weight: 300;
+  width: 20%;
 `;

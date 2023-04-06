@@ -16,19 +16,34 @@ export const ArrowDown = css`
 `;
 
 export const Page = styled.div`
+  min-height: 100vh;
   width: 100%;
-  height: 100vh;
   background-color: ${(props): string => props.theme.backgroundColor};
 `;
 
-export interface StyledButtonProps {
-  width: number;
-  height: number;
-}
+export const PageContainer = styled.div`
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-areas:
+    'hd hd hd hd'
+    '. mn mn sd';
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 70px 1fr;
+  justify-items: center;
 
-export const StyledButton = styled.button<StyledButtonProps>`
-  width: ${(props): number => props.width}px;
-  height: ${(props): number => props.height}px;
+  @media (max-width: 540px) {
+    grid-template-areas:
+      'hd'
+      'mn'
+      '.'
+      'sd';
+    grid-template-columns: 1fr;
+    grid-template-rows: 70px 500px 40px 1fr;
+  }
+`;
+
+export const StyledButton = styled.button`
   border: 1px solid ${(props): string => props.theme.mainColor};
   color: ${(props) => props.theme.fontColor};
   background-color: ${(props): string => props.theme.buttonColor};
@@ -51,4 +66,6 @@ export const StyledButton = styled.button<StyledButtonProps>`
 
 export const SettingsButton = styled(StyledButton)`
   padding-left: 20px;
+  width: 200px;
+  height: 40px;
 `;

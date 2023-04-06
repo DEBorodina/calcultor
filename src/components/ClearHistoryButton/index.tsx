@@ -9,9 +9,7 @@ const ClearHistoryButton: React.FC = () => {
     dispatch(clearAllHistory());
   };
   return (
-    <SettingsButton width={200} height={40} onClick={handleClick}>
-      Clear all history
-    </SettingsButton>
+    <SettingsButton onClick={handleClick}>Clear all history</SettingsButton>
   );
 };
 
