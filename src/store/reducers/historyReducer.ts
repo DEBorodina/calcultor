@@ -4,7 +4,7 @@ import {
   CLEAR_HISTORY,
 } from '@/constants/actions';
 import { HistoryActionTypes } from '../actions/types';
-import { HistoryState } from './types';
+import { HistoryState } from '../types';
 
 const initialState: HistoryState = {
   funcHistory: [],

@@ -1,5 +1,5 @@
 import { theme, themes } from '@/constants/themes';
-import { GlobalStore } from '@/store/reducers/types';
+import { GlobalStore } from '@/store/types';
 import { useSelector } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 
