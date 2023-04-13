@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { GlobalStore } from '@/store/types';
@@ -16,7 +16,7 @@ const FunctionalHistory: React.FC = () => {
     (state: GlobalStore) => state.history.funcHistory
   );
 
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleIsOpen = (): void => {
     setIsOpen(!isOpen);
@@ -43,4 +43,4 @@ const FunctionalHistory: React.FC = () => {
   );
 };
 
-export default FunctionalHistory;
+export default memo(FunctionalHistory);

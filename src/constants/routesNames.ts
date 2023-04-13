@@ -1,5 +1,6 @@
 export const ROUTE_NAMES = {
-  FUCTIONAL_CALCULATOR: '/fc-calculator',
+  FUNCTIONAL_CALCULATOR: '/fc-calculator',
   CLASS_CALCULATOR: '/cc-calculator',
-  SETTINGS: '/settings',
+  FUNCTIONAL_SETTINGS: '/fc-settings',
+  CLASS_SETTINGS: '/cc-settings',
 };

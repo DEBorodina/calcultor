@@ -1,7 +1,7 @@
 import { Component } from 'react';
 
 import ClassCalculator from '@/components/Calculator/ClassCalculator';
-import Header from '@/components/Header';
+import ClassHeader from '@/components/Header/ClassHeader';
 import FunctionalHistory from '@/components/History/ClassHistory';
 import { Page, PageContainer } from '@/styles/common';
 
@@ -10,7 +10,7 @@ export default class ClassCalculatorPage extends Component {
     return (
       <Page>
         <PageContainer>
-          <Header />
+          <ClassHeader />
           <ClassCalculator />
           <FunctionalHistory />
         </PageContainer>

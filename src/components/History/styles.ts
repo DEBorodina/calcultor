@@ -13,10 +13,9 @@ export const ScrollWrapper = css`
 
   &::-webkit-scrollbar-thumb {
     background-color: ${(props): string => props.theme.mainColor};
-    border: 10px solid rgba(0, 0, 0, 0);
+    border-left: 10px solid rgba(0, 0, 0, 0);
+    border-top: 10px solid rgba(0, 0, 0, 0);
     background-clip: padding-box;
-    border-right: none;
-    border-bottom: none;
   }
 
   ::-webkit-scrollbar-corner {

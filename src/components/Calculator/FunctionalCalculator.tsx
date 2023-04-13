@@ -6,20 +6,14 @@ import FunctionalDisplay from '@/components/Display/FunctionalDisplay';
 import FunctionalKeypad from '@/components/Keypad/FunctionalKeypad';
 import { addToFunctionalHistory } from '@/store/actions/historyActionCreators';
 import { AddToFunctionalHistoryAction } from '@/store/actions/types';
+import { getErrorMessage } from '@/utils/errorsHelper';
 import { intermediateFormater } from '@/utils/formater';
 import { getResult } from '@/utils/solver';
-import { intermediateValidator, validateEquation } from '@/utils/validator';
+import { finalValidator, intermediateValidator } from '@/utils/validator';
 
 import { Container } from './styles';
 
-export const MAX_LENGHT = 20;
-
-export const getErrorMessage = (e: unknown): string => {
-  let message = '';
-  if (e instanceof Error) message = e.message;
-  else message = String(e);
-  return message;
-};
+export const MAX_LENGTH = 20;
 
 const FunctionalCalculator: React.FC = () => {
   const [equation, setEquation] = useState('');
@@ -32,7 +26,7 @@ const FunctionalCalculator: React.FC = () => {
     let newEquation: string;
 
     if (errors) {
-      newEquation = key;
+      newEquation = equation + key;
       if (intermediateValidator(newEquation)) setErrors('');
     } else if (result) {
       newEquation = result + key;
@@ -41,16 +35,18 @@ const FunctionalCalculator: React.FC = () => {
       newEquation = equation + key;
     }
 
-    if (newEquation.length <= MAX_LENGHT && intermediateValidator(newEquation))
+    if (newEquation.length <= MAX_LENGTH && intermediateValidator(newEquation))
       setEquation(intermediateFormater(newEquation));
   };
 
   const handleEqualPress = (): void => {
     if (equation != '') {
       try {
-        validateEquation(equation);
+        finalValidator(equation);
+
         const resultValue: string = getResult(equation);
         setResult(resultValue);
+
         dispatch(addToFunctionalHistory(equation + '=' + resultValue));
       } catch (e) {
         setErrors(getErrorMessage(e));

@@ -7,7 +7,7 @@ import { changeTheme } from '@/store/actions/themeActionCreators';
 import { ChangeThemeAction } from '@/store/actions/types';
 import { GlobalStore } from '@/store/types';
 
-import DropDown from '../DropDown';
+import FunctionalDropDown from '../DropDown/FunctionalDropDown';
 import { Option } from '../DropDown/types';
 
 const ThemesMenu: React.FC = () => {
@@ -22,16 +22,16 @@ const ThemesMenu: React.FC = () => {
 
   const dispatch = useDispatch<Dispatch<ChangeThemeAction>>();
 
-  const handleSetTheme = (theme: theme) => {
-    dispatch(changeTheme(theme));
+  const handleSetTheme = (option: string) => {
+    dispatch(changeTheme(option as theme));
   };
 
   return (
-    <DropDown
+    <FunctionalDropDown
       options={themesNames}
       label={'Choose theme'}
       handleChooseOption={handleSetTheme}
-    ></DropDown>
+    ></FunctionalDropDown>
   );
 };
 

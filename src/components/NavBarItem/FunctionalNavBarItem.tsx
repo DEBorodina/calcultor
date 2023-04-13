@@ -7,7 +7,7 @@ const NavBarItem: React.FC<ListItemProps> = ({ to, children }) => {
   const { pathname } = useLocation();
   return (
     <MenuListItem>
-      <NavBarLink to={to} active={(pathname == to).toString()}>
+      <NavBarLink to={to} active={(pathname === to).toString()}>
         {children}
       </NavBarLink>
     </MenuListItem>

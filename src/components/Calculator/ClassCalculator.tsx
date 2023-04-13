@@ -1,15 +1,16 @@
-import React from 'react';
+import { Component } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 import { AnyAction, Dispatch } from 'redux';
 
 import ClassDisplay from '@/components/Display/ClassDisplay';
 import ClassKeypad from '@/components/Keypad/FunctionalKeypad';
 import { addToClassHistory } from '@/store/actions/historyActionCreators';
+import { getErrorMessage } from '@/utils/errorsHelper';
 import { intermediateFormater } from '@/utils/formater';
 import { getResult } from '@/utils/solver';
-import { intermediateValidator, validateEquation } from '@/utils/validator';
+import { finalValidator, intermediateValidator } from '@/utils/validator';
 
-import { getErrorMessage, MAX_LENGHT } from './FunctionalCalculator';
+import { MAX_LENGTH } from './FunctionalCalculator';
 import { Container } from './styles';
 
 interface ClassCalculatorState {
@@ -18,7 +19,7 @@ interface ClassCalculatorState {
   errors: string;
 }
 
-class ClassCalculator extends React.Component<
+class ClassCalculator extends Component<
   ClassCalculatorProps,
   ClassCalculatorState
 > {
@@ -36,7 +37,7 @@ class ClassCalculator extends React.Component<
     let newEquation: string;
 
     if (this.state.errors) {
-      newEquation = key;
+      newEquation = this.state.equation + key;
       if (intermediateValidator(newEquation)) this.setState({ errors: '' });
     } else if (this.state.result) {
       newEquation = this.state.result + key;
@@ -45,14 +46,14 @@ class ClassCalculator extends React.Component<
       newEquation = this.state.equation + key;
     }
 
-    if (newEquation.length <= MAX_LENGHT && intermediateValidator(newEquation))
+    if (newEquation.length <= MAX_LENGTH && intermediateValidator(newEquation))
       this.setState({ equation: intermediateFormater(newEquation) });
   };
 
   handleEqualPress = (): void => {
     if (this.state.equation != '') {
       try {
-        validateEquation(this.state.equation);
+        finalValidator(this.state.equation);
 
         const resultValue: string = getResult(this.state.equation);
         this.setState({ result: resultValue });

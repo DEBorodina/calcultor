@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NavBar from '../NavBar';
+import FunctionalNavBar from '../NavBar/FunctionalNavBar';
 import { Container, StyledHeader, Title } from './styles';
 
 const Header: React.FC = () => {
@@ -8,7 +8,7 @@ const Header: React.FC = () => {
     <StyledHeader>
       <Container>
         <Title>Calculator App</Title>
-        <NavBar />
+        <FunctionalNavBar />
       </Container>
     </StyledHeader>
   );

@@ -6,9 +6,13 @@ export interface Option {
 export interface DropDownProps {
   options: Option[];
   label: string;
-  handleChooseOption: (...args: any[]) => void;
+  handleChooseOption: (option: string) => void;
 }
 
 export interface DropDownButtonProps {
+  isOpen: boolean;
+}
+
+export interface DropDownState {
   isOpen: boolean;
 }

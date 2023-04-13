@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 
 import {
   Container,
@@ -15,7 +15,7 @@ const DropDown: React.FC<DropDownProps> = ({
   label,
   handleChooseOption,
 }) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const menu = useRef<HTMLDivElement>(null);
 
@@ -47,6 +47,21 @@ const DropDown: React.FC<DropDownProps> = ({
     ({ isActive }) => isActive
   )!;
 
+  const optionsList = useMemo(() => {
+    return options.map(
+      ({ option, isActive }) =>
+        !isActive && (
+          <Item
+            key={option}
+            onClick={onChooseOption(option)}
+            data-cy="drop-down-item"
+          >
+            {option}
+          </Item>
+        )
+    );
+  }, [options]);
+
   return (
     <Container>
       <Label>{label}</Label>
@@ -58,22 +73,7 @@ const DropDown: React.FC<DropDownProps> = ({
         >
           {currentOption}
         </DropDownButton>
-        {isOpen && (
-          <Options>
-            {options.map(
-              ({ option, isActive }) =>
-                !isActive && (
-                  <Item
-                    key={option}
-                    onClick={onChooseOption(option)}
-                    data-cy="drop-down-item"
-                  >
-                    {option}
-                  </Item>
-                )
-            )}
-          </Options>
-        )}
+        {isOpen && <Options>{optionsList}</Options>}
       </Menu>
     </Container>
   );

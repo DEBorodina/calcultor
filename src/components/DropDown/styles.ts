@@ -15,6 +15,7 @@ export const Label = styled.p`
 
 export const Menu = styled.div`
   position: relative;
+  width: fit-content;
 `;
 
 export const DropDownButton = styled(SettingsButton)<DropDownButtonProps>`

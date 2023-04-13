@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import Key from '@/components/Key/FunctionalKey';
 import { keys } from '@/constants/keys';
@@ -52,4 +52,4 @@ const FunctionalKeypad: React.FC<KeypadProps> = ({
   );
 };
 
-export default FunctionalKeypad;
+export default memo(FunctionalKeypad);
