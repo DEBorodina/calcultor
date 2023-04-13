@@ -1,12 +1,18 @@
 import { CurrentData, Display, PreviousData } from './styles';
 import { DisplayProps } from './types';
 
-const FunctionalDisplay: React.FC<DisplayProps> = ({ result, equation }) => {
+const FunctionalDisplay: React.FC<DisplayProps> = ({
+  result,
+  equation,
+  errors,
+}) => {
+  const resultToPrint = result ? '=' + result : result;
+
   return (
     <Display>
-      <PreviousData>{result ? equation : ''}</PreviousData>
+      <PreviousData>{result || errors ? equation : ''}</PreviousData>
       <CurrentData data-cy="current-display">
-        {result || equation || 0}
+        {errors || resultToPrint || equation || ''}
       </CurrentData>
     </Display>
   );

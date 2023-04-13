@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+
+import { GlobalStore } from '@/store/types';
+
 import {
   HistoryList,
   HistoryListItem,
@@ -6,11 +10,9 @@ import {
   ShowButton,
   Text,
 } from './styles';
-import { useSelector } from 'react-redux';
-import { GlobalStore } from '@/store/reducers';
 
 const FunctionalHistory: React.FC = () => {
-  const history: string[] = useSelector(
+  const history: string[] = useSelector<GlobalStore, string[]>(
     (state: GlobalStore) => state.history.funcHistory
   );
 

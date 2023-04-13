@@ -22,10 +22,10 @@ module.exports = {
     'plugin:import/warnings',
     'plugin:import/typescript',
     'plugin:jsx-a11y/recommended',
-    'prettier',
     'plugin:prettier/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'prettier',
   ],
   rules: {
     'no-unused-vars': 'off',
@@ -39,6 +39,17 @@ module.exports = {
     '@typescript-eslint/no-unsafe-assignment': 'off',
     '@typescript-eslint/no-unsafe-member-access': 'off',
     '@typescript-eslint/no-unsafe-return':'off',
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "simple-import-sort/imports": ["error", {
+      groups: [
+        ["^react"],
+        ["^antd"],
+        ["^@?\\w"],
+        ["@/(.*)"],
+        ["^[./]"]
+      ]
+    }]     
   },
-  plugins: ['@typescript-eslint', 'import'],
+  plugins: ['@typescript-eslint',"simple-import-sort"],
 };

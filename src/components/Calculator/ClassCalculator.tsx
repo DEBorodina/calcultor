@@ -1,20 +1,25 @@
-import { Component } from 'react';
-import { Action, AnyAction, Dispatch } from 'redux';
-import { ConnectedProps, connect } from 'react-redux';
-import { Container } from './styles';
+import React from 'react';
+import { connect, ConnectedProps } from 'react-redux';
+
+import { AnyAction, Dispatch } from 'redux';
+
 import ClassDisplay from '@/components/Display/ClassDisplay';
 import ClassKeypad from '@/components/Keypad/FunctionalKeypad';
-import { validateEquation } from '@/utils/validator';
 import { addToClassHistory } from '@/store/actions/historyActionCreators';
-import { MAX_LENGHT, getErrorMessage } from './FunctionalCalculator';
+import { intermediateFormater } from '@/utils/formater';
 import { getResult } from '@/utils/solver';
+import { intermediateValidator, validateEquation } from '@/utils/validator';
+
+import { getErrorMessage, MAX_LENGHT } from './FunctionalCalculator';
+import { Container } from './styles';
 
 interface ClassCalculatorState {
   result: string;
   equation: string;
+  errors: string;
 }
 
-class ClassCalculator extends Component<
+class ClassCalculator extends React.Component<
   ClassCalculatorProps,
   ClassCalculatorState
 > {
@@ -24,35 +29,49 @@ class ClassCalculator extends Component<
     this.state = {
       result: '',
       equation: '',
+      errors: '',
     };
   }
 
   handleKeyPress = (key: string): void => {
-    if (this.state.result) {
-      this.setState({ equation: '' });
-      this.setState({ result: '' });
+    let newEquation: string;
+
+    if (this.state.errors) {
+      newEquation = key;
+      if (intermediateValidator(newEquation)) this.setState({ errors: '' });
+    } else if (this.state.result) {
+      newEquation = this.state.result + key;
+      if (intermediateValidator(newEquation)) this.setState({ result: '' });
+    } else {
+      newEquation = this.state.equation + key;
     }
-    if ((this.state.equation + key).length <= MAX_LENGHT)
-      this.setState(({ equation }) => ({
-        equation: equation + key,
-      }));
+
+    if (newEquation.length <= MAX_LENGHT && intermediateValidator(newEquation))
+      this.setState({ equation: intermediateFormater(newEquation) });
   };
 
   handleEqualPress = (): void => {
     if (this.state.equation != '') {
       try {
         validateEquation(this.state.equation);
-        const resValue: string = getResult(this.state.equation);
-        this.setState({ result: '=' + resValue });
-        this.props.addToClassHistory(this.state.equation + '=' + resValue);
+
+        const resultValue: string = getResult(this.state.equation);
+        this.setState({ result: resultValue });
+
+        this.props.addToClassHistory(this.state.equation + '=' + resultValue);
       } catch (e) {
-        this.setState({ result: getErrorMessage(e) });
+        this.setState({ errors: getErrorMessage(e) });
       }
     }
   };
 
   handleCPress = (): void => {
-    if (!this.state.result && this.state.equation.length > 0) {
+    this.setState({ errors: '' });
+    if (
+      !this.state.errors &&
+      !this.state.result &&
+      this.state.equation.length > 0
+    ) {
       this.setState({
         equation: this.state.equation.slice(0, this.state.equation.length - 1),
       });
@@ -62,7 +81,7 @@ class ClassCalculator extends Component<
   };
 
   handleCEPress = (): void => {
-    this.setState({ result: '', equation: '' });
+    this.setState({ result: '', equation: '', errors: '' });
   };
 
   render() {
@@ -71,6 +90,7 @@ class ClassCalculator extends Component<
         <ClassDisplay
           equation={this.state.equation}
           result={this.state.result}
+          errors={this.state.errors}
         ></ClassDisplay>
         <ClassKeypad
           handleCEPress={this.handleCEPress}
@@ -83,7 +103,7 @@ class ClassCalculator extends Component<
   }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({
+const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => ({
   addToClassHistory: (history: string) =>
     dispatch<AnyAction>(addToClassHistory(history)),
 });

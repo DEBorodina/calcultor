@@ -32,7 +32,7 @@ export const PageContainer = styled.div`
   grid-template-rows: 70px 1fr;
   justify-items: center;
 
-  @media (max-width: 540px) {
+  @media (max-width: 700px) {
     grid-template-areas:
       'hd'
       'mn'

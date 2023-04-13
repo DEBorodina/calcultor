@@ -7,6 +7,7 @@ import {
 
 export class Calculator {
   numbers: number[];
+
   constructor() {
     this.numbers = [];
   }
