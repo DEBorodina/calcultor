@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
-import { AnyAction, Dispatch } from 'redux';
 
 import { clearAllHistory } from '@/store/actions/historyActionCreators';
 import { SettingsButton } from '@/styles/common';
@@ -21,9 +20,9 @@ class ClassHistoryButton extends Component<ClassHistoryButtonProps> {
   }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => ({
-  clearAllHistory: () => dispatch<AnyAction>(clearAllHistory()),
-});
+const mapDispatchToProps = {
+  clearAllHistory,
+};
 
 const connector = connect(null, mapDispatchToProps);
 

@@ -1,10 +1,9 @@
-import { Component, Dispatch } from 'react';
+import { Component } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
-import { AnyAction } from 'redux';
 
 import { theme, themes } from '@/constants/themes';
 import { changeTheme } from '@/store/actions/themeActionCreators';
-import { GlobalStore } from '@/store/types';
+import { RootState } from '@/store/reducers';
 
 import ClassDropDown from '../DropDown/ClassDropDown';
 import { Option } from '../DropDown/types';
@@ -33,11 +32,11 @@ class ClassThemeMenu extends Component<ClassThemeMenuProps> {
   }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => ({
-  changeTheme: (theme: theme) => dispatch(changeTheme(theme)),
-});
+const mapDispatchToProps = {
+  changeTheme,
+};
 
-const mapStateToProps = (state: GlobalStore) => ({
+const mapStateToProps = (state: RootState) => ({
   currentTheme: state.theme.theme,
 });
 

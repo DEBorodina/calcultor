@@ -1,7 +1,6 @@
 import React, { memo, useState } from 'react';
-import { useSelector } from 'react-redux';
 
-import { GlobalStore } from '@/store/types';
+import { useTypedSelector } from '@/utils/hooks/useTypedSelector';
 
 import {
   HistoryList,
@@ -12,8 +11,8 @@ import {
 } from './styles';
 
 const FunctionalHistory: React.FC = () => {
-  const history: string[] = useSelector<GlobalStore, string[]>(
-    (state: GlobalStore) => state.history.funcHistory
+  const history: string[] = useTypedSelector(
+    (state) => state.history.funcHistory
   );
 
   const [isOpen, setIsOpen] = useState(false);

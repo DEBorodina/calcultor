@@ -1,13 +1,11 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { Dispatch } from 'redux';
 
 import FunctionalDisplay from '@/components/Display/FunctionalDisplay';
 import FunctionalKeypad from '@/components/Keypad/FunctionalKeypad';
 import { addToFunctionalHistory } from '@/store/actions/historyActionCreators';
-import { AddToFunctionalHistoryAction } from '@/store/actions/types';
 import { getErrorMessage } from '@/utils/errorsHelper';
 import { intermediateFormater } from '@/utils/formater';
+import { useTypedDispatch } from '@/utils/hooks/useTypedDispatch';
 import { getResult } from '@/utils/solver';
 import { finalValidator, intermediateValidator } from '@/utils/validator';
 
@@ -20,7 +18,7 @@ const FunctionalCalculator: React.FC = () => {
   const [result, setResult] = useState('');
   const [errors, setErrors] = useState('');
 
-  const dispatch = useDispatch<Dispatch<AddToFunctionalHistoryAction>>();
+  const dispatch = useTypedDispatch();
 
   const handleKeyPress = (key: string): void => {
     let newEquation: string;

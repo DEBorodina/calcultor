@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 
-import { GlobalStore } from '@/store/types';
+import { RootState } from '@/store/reducers';
 
 import {
   HistoryList,
@@ -47,7 +47,7 @@ class ClassHistory extends Component<ClassHistoryProps, ClassHistoryState> {
   }
 }
 
-const mapStateToProps = (state: GlobalStore) => ({
+const mapStateToProps = (state: RootState) => ({
   history: state.history.classHistory,
 });
 

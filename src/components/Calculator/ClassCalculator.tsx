@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
-import { AnyAction, Dispatch } from 'redux';
 
 import ClassDisplay from '@/components/Display/ClassDisplay';
 import ClassKeypad from '@/components/Keypad/FunctionalKeypad';
@@ -103,10 +102,9 @@ class ClassCalculator extends Component<
   }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => ({
-  addToClassHistory: (history: string) =>
-    dispatch<AnyAction>(addToClassHistory(history)),
-});
+const mapDispatchToProps = {
+  addToClassHistory,
+};
 
 const connector = connect(null, mapDispatchToProps);
 

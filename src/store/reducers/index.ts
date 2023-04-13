@@ -7,3 +7,5 @@ export const rootReducer = combineReducers({
   history: historyReducer,
   theme: themeReducer,
 });
+
+export type RootState = ReturnType<typeof rootReducer>;
