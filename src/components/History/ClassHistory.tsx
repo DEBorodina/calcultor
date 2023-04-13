@@ -34,7 +34,9 @@ class ClassHistory extends Component<ClassHistoryProps, ClassHistoryState> {
           (this.props.history.length > 0 ? (
             <HistoryList data-cy="history-list">
               {this.props.history.map((item, index) => (
-                <HistoryListItem key={index}>{item}</HistoryListItem>
+                <HistoryListItem key={`history-list-item__${index}`}>
+                  {item}
+                </HistoryListItem>
               ))}
             </HistoryList>
           ) : (

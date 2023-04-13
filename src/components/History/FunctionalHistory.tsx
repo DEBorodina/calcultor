@@ -31,7 +31,9 @@ const FunctionalHistory: React.FC = () => {
         (history.length > 0 ? (
           <HistoryList data-cy="history-list">
             {history.map((item, index) => (
-              <HistoryListItem key={index}>{item}</HistoryListItem>
+              <HistoryListItem key={`history-list-item__${index}`}>
+                {item}
+              </HistoryListItem>
             ))}
           </HistoryList>
         ) : (

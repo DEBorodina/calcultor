@@ -23,14 +23,14 @@ const DropDown: React.FC<DropDownProps> = ({
     setIsOpen((isOpen) => !isOpen);
   };
 
-  useEffect(() => {
-    const handleClickOutside = ({ target }: MouseEvent): void => {
-      if (menu.current && !menu.current.contains(target as Node)) {
-        setIsOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
+  const handleClickOutside = ({ target }: MouseEvent): void => {
+    if (menu.current && !menu.current.contains(target as Node)) {
+      setIsOpen(false);
+    }
+  };
 
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };

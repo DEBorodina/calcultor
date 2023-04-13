@@ -10,7 +10,6 @@ export const Container = styled.div`
 `;
 
 export const Label = styled.p`
-  color: #70707;
   font-size: 16px;
 `;
 
@@ -40,11 +39,13 @@ export const Options = styled.div`
   border-bottom-right-radius: 10px;
   border: 1px solid ${(props): string => props.theme.mainColor};
   overflow: hidden;
+
   &:hover {
     transition: 0.2s;
     filter: brightness(88%);
     cursor: pointer;
   }
+
   &:active {
     transition: 0.2s;
     filter: brightness(95%);

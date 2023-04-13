@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const ArrowDown = css`
   position: relative;
+
   &::after {
     content: '';
     position: absolute;
@@ -52,11 +53,13 @@ export const StyledButton = styled.button`
   font-weight: 300;
   display: flex;
   align-items: center;
+
   &:hover {
     transition: 0.2s;
     filter: brightness(88%);
     cursor: pointer;
   }
+
   &:active {
     transition: 0.2s;
     filter: brightness(95%);

@@ -19,7 +19,7 @@ export default class ClassDisplay extends Component<DisplayProps> {
           {this.props.result || this.props.errors ? this.props.equation : ''}
         </PreviousData>
         <CurrentData data-cy="current-display">
-          {this.props.errors || resultToPrint || this.props.equation || 0}
+          {this.props.errors || resultToPrint || this.props.equation || ''}
         </CurrentData>
       </Display>
     );
