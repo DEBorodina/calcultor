@@ -1,6 +1,7 @@
 import React from 'react';
-import { Container, StyledHeader, Title } from './styles';
+
 import NavBar from '../NavBar';
+import { Container, StyledHeader, Title } from './styles';
 
 const Header: React.FC = () => {
   return (

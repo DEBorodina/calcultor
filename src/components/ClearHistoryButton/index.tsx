@@ -1,6 +1,5 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-
 import { Dispatch } from 'redux';
 
 import { clearAllHistory } from '@/store/actions/historyActionCreators';

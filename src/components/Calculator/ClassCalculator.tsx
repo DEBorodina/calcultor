@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect, ConnectedProps } from 'react-redux';
-
 import { AnyAction, Dispatch } from 'redux';
 
 import ClassDisplay from '@/components/Display/ClassDisplay';

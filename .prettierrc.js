@@ -6,4 +6,6 @@ module.exports = {
     tabWidth: 2,
     endOfLine: 'auto',
     semi: true,
+    importOrder: ["^react(.*) | <THIRD_PARTY_MODULES>", "@/(.*)", "^[./]"],
+    importOrderSeparation: true
 };

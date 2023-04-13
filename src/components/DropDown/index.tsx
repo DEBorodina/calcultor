@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
+
 import {
   Container,
   DropDownButton,
   Item,
   Label,
-  Options,
   Menu,
+  Options,
 } from './styles';
 import { DropDownProps, Option } from './types';
 

@@ -1,5 +1,4 @@
 import { useSelector } from 'react-redux';
-
 import { ThemeProvider } from 'styled-components';
 
 import { theme, themes } from '@/constants/themes';

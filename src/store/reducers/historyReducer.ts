@@ -3,6 +3,7 @@ import {
   ADD_TO_FUNC_HISTORY,
   CLEAR_HISTORY,
 } from '@/constants/actions';
+
 import { HistoryActionTypes } from '../actions/types';
 import { HistoryState } from '../types';
 

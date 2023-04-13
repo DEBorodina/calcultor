@@ -1,7 +1,9 @@
 import React from 'react';
-import { KeyPad } from './styles';
+
 import Key from '@/components/Key/FunctionalKey';
 import { keys } from '@/constants/keys';
+
+import { KeyPad } from './styles';
 import { KeypadProps } from './types';
 
 const FunctionalKeypad: React.FC<KeypadProps> = ({

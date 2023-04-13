@@ -1,4 +1,5 @@
 import { Component } from 'react';
+
 import ClassCalculator from '@/components/Calculator/ClassCalculator';
 import Header from '@/components/Header';
 import FunctionalHistory from '@/components/History/ClassHistory';

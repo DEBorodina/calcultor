@@ -1,4 +1,8 @@
 import { Component } from 'react';
+import { connect, ConnectedProps } from 'react-redux';
+
+import { GlobalStore } from '@/store/types';
+
 import {
   HistoryList,
   HistoryListItem,
@@ -6,9 +10,7 @@ import {
   ShowButton,
   Text,
 } from './styles';
-import { ConnectedProps, connect } from 'react-redux';
 import { ClassHistoryState } from './types';
-import { GlobalStore } from '@/store/types';
 
 class ClassHistory extends Component<ClassHistoryProps, ClassHistoryState> {
   constructor(props: ClassHistoryProps) {

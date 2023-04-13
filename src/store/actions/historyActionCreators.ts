@@ -1,8 +1,9 @@
 import {
+  ADD_TO_CLASS_HISTORY,
   ADD_TO_FUNC_HISTORY,
   CLEAR_HISTORY,
-  ADD_TO_CLASS_HISTORY,
 } from '@/constants/actions';
+
 import {
   AddToClassHistoryAction,
   AddToFunctionalHistoryAction,

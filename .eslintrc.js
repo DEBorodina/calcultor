@@ -43,8 +43,7 @@ module.exports = {
     "simple-import-sort/exports": "error",
     "simple-import-sort/imports": ["error", {
       groups: [
-        ["^react"],
-        ["^antd"],
+        ["^react | <THIRD_PARTY_MODULES>"],
         ["^@?\\w"],
         ["@/(.*)"],
         ["^[./]"]

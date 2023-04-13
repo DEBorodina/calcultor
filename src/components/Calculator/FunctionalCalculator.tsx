@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-
 import { Dispatch } from 'redux';
 
 import FunctionalDisplay from '@/components/Display/FunctionalDisplay';

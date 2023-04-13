@@ -1,8 +1,9 @@
 import { Component } from 'react';
 
-import { KeyPad } from './styles';
 import Key from '@/components/Key/ClassKey';
 import { keys } from '@/constants/keys';
+
+import { KeyPad } from './styles';
 import { KeypadProps } from './types';
 
 export default class ClassKeypad extends Component<KeypadProps> {

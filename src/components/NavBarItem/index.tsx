@@ -1,4 +1,5 @@
 import { useLocation } from 'react-router-dom';
+
 import { MenuListItem, NavBarLink } from './styles';
 import { ListItemProps } from './types';
 

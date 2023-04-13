@@ -1,9 +1,11 @@
-import Header from '@/components/Header';
-import { Container } from './styles';
 import React from 'react';
-import { Page } from '@/styles/common';
+
 import ClearHistoryButton from '@/components/ClearHistoryButton';
+import Header from '@/components/Header';
 import ThemesMenu from '@/components/ThemesMenu';
+import { Page } from '@/styles/common';
+
+import { Container } from './styles';
 
 const SettingsPage: React.FC = () => {
   return (

@@ -1,12 +1,14 @@
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
 import { ErrorBoundary } from 'react-error-boundary';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import { PersistGate } from 'redux-persist/integration/react';
+
+import GlobalThemProvider from '@/components/GlobalThemeProvider';
 import { Router } from '@/router/Router';
 import Global from '@/styles/global';
-import GlobalThemProvider from '@/components/GlobalThemeProvider';
-import { Provider } from 'react-redux';
-import { store, persistor } from './store';
-import { PersistGate } from 'redux-persist/integration/react';
+
+import { persistor, store } from './store';
 
 const rootElement = document.getElementById('root')!;
 const root = createRoot(rootElement);
