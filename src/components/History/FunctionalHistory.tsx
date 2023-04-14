@@ -1,6 +1,6 @@
 import React, { memo, useState } from 'react';
 
-import { useTypedSelector } from '@/utils/hooks/useTypedSelector';
+import { useTypedSelector } from '@/hooks/useTypedSelector';
 
 import {
   HistoryList,

@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { theme, themes } from '@/constants/themes';
+import { useTypedDispatch } from '@/hooks/useTypedDispatch';
+import { useTypedSelector } from '@/hooks/useTypedSelector';
 import { changeTheme } from '@/store/actions/themeActionCreators';
-import { useTypedDispatch } from '@/utils/hooks/useTypedDispatch';
-import { useTypedSelector } from '@/utils/hooks/useTypedSelector';
 
 import FunctionalDropDown from '../DropDown/FunctionalDropDown';
 import { Option } from '../DropDown/types';

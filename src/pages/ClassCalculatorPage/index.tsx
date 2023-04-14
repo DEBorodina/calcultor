@@ -2,18 +2,18 @@ import { Component } from 'react';
 
 import ClassCalculator from '@/components/Calculator/ClassCalculator';
 import ClassHeader from '@/components/Header/ClassHeader';
-import FunctionalHistory from '@/components/History/ClassHistory';
-import { Page, PageContainer } from '@/styles/common';
+import ClassHistory from '@/components/History/ClassHistory';
+import { CalculatorPageContainer, Page } from '@/styles/common';
 
 export default class ClassCalculatorPage extends Component {
   render() {
     return (
       <Page>
-        <PageContainer>
+        <CalculatorPageContainer>
           <ClassHeader />
           <ClassCalculator />
-          <FunctionalHistory />
-        </PageContainer>
+          <ClassHistory />
+        </CalculatorPageContainer>
       </Page>
     );
   }

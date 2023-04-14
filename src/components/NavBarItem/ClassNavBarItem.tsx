@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import withRouter, { WithRouterProps } from '@/utils/hocs/withRouter';
+import withRouter, { WithRouterProps } from '@/hocs/withRouter';
 
 import { MenuListItem, NavBarLink } from './styles';
 import { ListItemProps } from './types';

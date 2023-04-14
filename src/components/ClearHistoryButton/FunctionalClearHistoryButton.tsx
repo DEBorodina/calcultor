@@ -1,8 +1,8 @@
 import React from 'react';
 
+import { useTypedDispatch } from '@/hooks/useTypedDispatch';
 import { clearAllHistory } from '@/store/actions/historyActionCreators';
 import { SettingsButton } from '@/styles/common';
-import { useTypedDispatch } from '@/utils/hooks/useTypedDispatch';
 
 const ClearHistoryButton: React.FC = () => {
   const dispatch = useTypedDispatch();

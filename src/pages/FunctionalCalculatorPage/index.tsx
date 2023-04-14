@@ -1,16 +1,16 @@
 import FunctionalCalculator from '@/components/Calculator/FunctionalCalculator';
 import FunctionalHeader from '@/components/Header/FunctionalHeader';
 import FunctionalHistory from '@/components/History/FunctionalHistory';
-import { Page, PageContainer } from '@/styles/common';
+import { CalculatorPageContainer, Page } from '@/styles/common';
 
 const FunctionalCalculatorPage: React.FC = () => {
   return (
     <Page>
-      <PageContainer>
+      <CalculatorPageContainer>
         <FunctionalHeader />
         <FunctionalCalculator />
         <FunctionalHistory />
-      </PageContainer>
+      </CalculatorPageContainer>
     </Page>
   );
 };

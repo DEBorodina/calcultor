@@ -22,7 +22,7 @@ export const Page = styled.div`
   background-color: ${(props): string => props.theme.backgroundColor};
 `;
 
-export const PageContainer = styled.div`
+export const CalculatorPageContainer = styled.div`
   width: 100%;
   min-height: 100vh;
   display: grid;
@@ -71,4 +71,15 @@ export const SettingsButton = styled(StyledButton)`
   padding-left: 20px;
   width: 200px;
   height: 40px;
+`;
+
+export const SettingsPageContainer = styled.div`
+  margin: 0 auto;
+  width: 80%;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-between;
+  color: ${(props) => props.theme.fontColor};
 `;

@@ -3,19 +3,17 @@ import React from 'react';
 import ClassClearHistoryButton from '@/components/ClearHistoryButton/ClassClearHistoryButton';
 import ClassHeader from '@/components/Header/ClassHeader';
 import ClassThemesMenu from '@/components/ThemesMenu/ClassThemeMenu';
-import { Page } from '@/styles/common';
-
-import { Container } from './styles';
+import { Page, SettingsPageContainer } from '@/styles/common';
 
 const ClassSettingsPage: React.FC = () => {
   return (
     <Page>
       <ClassHeader />
-      <Container>
+      <SettingsPageContainer>
         <h1>Settings</h1>
         <ClassThemesMenu />
         <ClassClearHistoryButton />
-      </Container>
+      </SettingsPageContainer>
     </Page>
   );
 };
