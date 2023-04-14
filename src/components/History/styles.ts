@@ -58,6 +58,7 @@ export const ShowButton = styled.button`
   &:hover {
     cursor: pointer;
   }
+
   ${ArrowDown}
 `;
 

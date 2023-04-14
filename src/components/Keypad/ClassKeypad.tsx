@@ -22,19 +22,19 @@ export default class ClassKeypad extends Component<KeypadProps> {
       <KeyPad>
         {keys.map((key) => {
           switch (key) {
-            case '=':
+            case keys[14]:
               return (
                 <Key key={key} handleClick={this.props.handleEqualPress}>
                   {key}
                 </Key>
               );
-            case 'C':
+            case keys[0]:
               return (
                 <Key key={key} handleClick={this.props.handleCPress}>
                   {key}
                 </Key>
               );
-            case 'CE':
+            case keys[19]:
               return (
                 <Key key={key} handleClick={this.props.handleCEPress}>
                   {key}

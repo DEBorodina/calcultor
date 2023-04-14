@@ -9,17 +9,14 @@ export default class ClassDisplay extends Component<DisplayProps> {
   }
 
   render() {
-    const resultToPrint = this.props.result
-      ? '=' + this.props.result
-      : this.props.result;
+    const { result, errors, equation } = this.props;
+    const resultToPrint = result ? '=' + result : result;
 
     return (
       <Display>
-        <PreviousData>
-          {this.props.result || this.props.errors ? this.props.equation : ''}
-        </PreviousData>
+        <PreviousData>{result || errors ? equation : ''}</PreviousData>
         <CurrentData data-cy="current-display">
-          {this.props.errors || resultToPrint || this.props.equation || ''}
+          {errors || resultToPrint || equation || ''}
         </CurrentData>
       </Display>
     );

@@ -15,6 +15,7 @@ import { ClassHistoryState } from './types';
 class ClassHistory extends Component<ClassHistoryProps, ClassHistoryState> {
   constructor(props: ClassHistoryProps) {
     super(props);
+
     this.state = {
       isOpen: false,
     };
@@ -25,15 +26,18 @@ class ClassHistory extends Component<ClassHistoryProps, ClassHistoryState> {
   };
 
   render() {
+    const { history } = this.props;
+    const { isOpen } = this.state;
+
     return (
       <HistoryWithScroll>
         <ShowButton onClick={this.handleIsOpen} data-cy="history-button">
           History
         </ShowButton>
-        {this.state.isOpen &&
-          (this.props.history.length > 0 ? (
+        {isOpen &&
+          (history.length > 0 ? (
             <HistoryList data-cy="history-list">
-              {this.props.history.map((item, index) => (
+              {history.map((item, index) => (
                 <HistoryListItem key={`history-list-item__${index}`}>
                   {item}
                 </HistoryListItem>

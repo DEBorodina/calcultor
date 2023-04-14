@@ -1,13 +1,11 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { NavBarLinkProps } from './types';
+
 export const MenuListItem = styled.li`
   text-align: center;
 `;
-
-interface NavBarLinkProps {
-  active: string;
-}
 
 export const NavBarLink = styled(Link)<NavBarLinkProps>`
   opacity: ${({ active }) => (active == 'true' ? 1 : 0.6)};

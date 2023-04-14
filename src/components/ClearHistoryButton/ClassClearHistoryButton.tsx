@@ -8,9 +8,11 @@ class ClassHistoryButton extends Component<ClassHistoryButtonProps> {
   constructor(props: ClassHistoryButtonProps) {
     super(props);
   }
+
   handleClick = (): void => {
     this.props.clearAllHistory();
   };
+
   render() {
     return (
       <SettingsButton onClick={this.handleClick}>

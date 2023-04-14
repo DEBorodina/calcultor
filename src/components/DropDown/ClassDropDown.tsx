@@ -55,6 +55,7 @@ export default class ClassDropDown extends Component<
     const { option: currentOption }: Option = this.props.options.find(
       ({ isActive }) => isActive
     )!;
+
     return (
       <Container>
         <Label>{this.props.label}</Label>

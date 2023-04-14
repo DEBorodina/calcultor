@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 
-import withRouter, { WithRouterProps } from '@/hocs/withRouter';
+import withRouter from '@/hocs/withRouter/';
 
 import { MenuListItem, NavBarLink } from './styles';
-import { ListItemProps } from './types';
+import { ListItemWithRouterProps } from './types';
 
-class ClassNavBarItemWithRouter extends Component<
-  { router: WithRouterProps } & ListItemProps
-> {
+class ClassNavBarItemWithRouter extends Component<ListItemWithRouterProps> {
+  constructor(props: ListItemWithRouterProps) {
+    super(props);
+  }
+
   render() {
     return (
       <MenuListItem>

@@ -22,19 +22,19 @@ const FunctionalKeypad: React.FC<KeypadProps> = ({
     <KeyPad>
       {keys.map((key) => {
         switch (key) {
-          case '=':
+          case keys[14]:
             return (
               <Key key={key} handleClick={handleEqualPress}>
                 {key}
               </Key>
             );
-          case 'C':
+          case keys[0]:
             return (
               <Key key={key} handleClick={handleCPress}>
                 {key}
               </Key>
             );
-          case 'CE':
+          case keys[19]:
             return (
               <Key key={key} handleClick={handleCEPress}>
                 {key}

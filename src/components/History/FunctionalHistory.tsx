@@ -1,6 +1,6 @@
 import React, { memo, useState } from 'react';
 
-import { useTypedSelector } from '@/hooks/useTypedSelector';
+import { useTypedSelector } from '@/hooks/';
 
 import {
   HistoryList,
@@ -11,9 +11,7 @@ import {
 } from './styles';
 
 const FunctionalHistory: React.FC = () => {
-  const history: string[] = useTypedSelector(
-    (state) => state.history.funcHistory
-  );
+  const history = useTypedSelector((state) => state.history.funcHistory);
 
   const [isOpen, setIsOpen] = useState(false);
 

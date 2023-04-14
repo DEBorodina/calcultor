@@ -5,6 +5,7 @@ import { ListItemProps } from './types';
 
 const NavBarItem: React.FC<ListItemProps> = ({ to, children }) => {
   const { pathname } = useLocation();
+
   return (
     <MenuListItem>
       <NavBarLink to={to} active={(pathname === to).toString()}>

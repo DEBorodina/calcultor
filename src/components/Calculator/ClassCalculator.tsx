@@ -11,12 +11,7 @@ import { finalValidator, intermediateValidator } from '@/utils/validator';
 
 import { MAX_LENGTH } from './FunctionalCalculator';
 import { Container } from './styles';
-
-interface ClassCalculatorState {
-  result: string;
-  equation: string;
-  errors: string;
-}
+import { ClassCalculatorState } from './types';
 
 class ClassCalculator extends Component<
   ClassCalculatorProps,
@@ -66,6 +61,7 @@ class ClassCalculator extends Component<
 
   handleCPress = (): void => {
     this.setState({ errors: '' });
+
     if (
       !this.state.errors &&
       !this.state.result &&

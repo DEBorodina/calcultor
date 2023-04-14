@@ -22,6 +22,7 @@ export const historyReducer = (
 
     case HistoryActionTypes.CLEAR_HISTORY:
       return { funcHistory: [], classHistory: [] };
+
     default:
       return state;
   }

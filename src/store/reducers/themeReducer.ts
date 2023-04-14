@@ -12,6 +12,7 @@ export const themeReducer = (
   switch (action.type) {
     case ThemeActionTypes.CHANGE_THEME:
       return { theme: action.payload };
+
     default:
       return state;
   }

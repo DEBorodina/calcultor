@@ -22,6 +22,7 @@ class ClassThemeMenu extends Component<ClassThemeMenuProps> {
       option: theme,
       isActive: theme === this.props.currentTheme,
     }));
+
     return (
       <ClassDropDown
         options={themesNames}
