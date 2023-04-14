@@ -9,7 +9,7 @@ class ClassHistoryButton extends Component<ClassHistoryButtonProps> {
     super(props);
   }
 
-  handleClick = (): void => {
+  handleClick = () => {
     this.props.clearAllHistory();
   };
 

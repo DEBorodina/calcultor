@@ -27,7 +27,7 @@ class ClassCalculator extends Component<
     };
   }
 
-  handleKeyPress = (key: string): void => {
+  handleKeyPress = (key: string) => {
     let newEquation: string;
 
     if (this.state.errors) {
@@ -44,7 +44,7 @@ class ClassCalculator extends Component<
       this.setState({ equation: intermediateFormatter(newEquation) });
   };
 
-  handleEqualPress = (): void => {
+  handleEqualPress = () => {
     if (this.state.equation != '') {
       try {
         finalValidator(this.state.equation);
@@ -59,7 +59,7 @@ class ClassCalculator extends Component<
     }
   };
 
-  handleCPress = (): void => {
+  handleCPress = () => {
     this.setState({ errors: '' });
 
     if (
@@ -75,7 +75,7 @@ class ClassCalculator extends Component<
     }
   };
 
-  handleCEPress = (): void => {
+  handleCEPress = () => {
     this.setState({ result: '', equation: '', errors: '' });
   };
 

@@ -6,10 +6,6 @@ import ClassNavBarItem from '../NavBarItem/ClassNavBarItem';
 import { Menu } from './styles';
 
 export default class ClassNavBar extends Component {
-  constructor() {
-    super({});
-  }
-
   render() {
     return (
       <Menu>

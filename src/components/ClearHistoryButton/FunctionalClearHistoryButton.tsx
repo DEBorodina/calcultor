@@ -7,7 +7,7 @@ import { SettingsButton } from '@/styles/common';
 const ClearHistoryButton: React.FC = () => {
   const dispatch = useTypedDispatch();
 
-  const handleClick = (): void => {
+  const handleClick = () => {
     dispatch(clearAllHistory());
   };
 

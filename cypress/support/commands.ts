@@ -11,7 +11,7 @@ declare namespace Cypress {
   }
 }
 
-Cypress.Commands.add('typeExpression', (expression: string): void => {
+Cypress.Commands.add('typeExpression', (expression: string) => {
   expression.split('').forEach((key: string) => {
     cy.get(`button[data-cy="${key}"]`).click();
   });

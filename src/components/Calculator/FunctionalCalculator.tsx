@@ -20,7 +20,7 @@ const FunctionalCalculator: React.FC = () => {
 
   const dispatch = useTypedDispatch();
 
-  const handleKeyPress = (key: string): void => {
+  const handleKeyPress = (key: string) => {
     let newEquation: string;
 
     if (errors) {
@@ -37,7 +37,7 @@ const FunctionalCalculator: React.FC = () => {
       setEquation(intermediateFormatter(newEquation));
   };
 
-  const handleEqualPress = (): void => {
+  const handleEqualPress = () => {
     if (equation != '') {
       try {
         finalValidator(equation);
@@ -52,7 +52,7 @@ const FunctionalCalculator: React.FC = () => {
     }
   };
 
-  const handleCPress = (): void => {
+  const handleCPress = () => {
     setErrors('');
 
     if (!errors && !result && equation.length > 0) {
@@ -62,7 +62,7 @@ const FunctionalCalculator: React.FC = () => {
     }
   };
 
-  const handleCEPress = (): void => {
+  const handleCEPress = () => {
     setErrors('');
     setResult('');
     setEquation('');

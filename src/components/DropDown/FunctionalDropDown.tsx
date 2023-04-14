@@ -19,11 +19,11 @@ const DropDown: React.FC<DropDownProps> = ({
 
   const menu = useRef<HTMLDivElement>(null);
 
-  const handleToggle = (): void => {
+  const handleToggle = () => {
     setIsOpen((isOpen) => !isOpen);
   };
 
-  const handleClickOutside = ({ target }: MouseEvent): void => {
+  const handleClickOutside = ({ target }: MouseEvent) => {
     if (menu.current && !menu.current.contains(target as Node)) {
       setIsOpen(false);
     }

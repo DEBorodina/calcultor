@@ -6,10 +6,6 @@ import ClassThemesMenu from '@/components/ThemesMenu/ClassThemeMenu';
 import { Page, SettingsPageContainer } from '@/styles/common';
 
 class ClassSettingsPage extends Component {
-  constructor() {
-    super({});
-  }
-
   render() {
     return (
       <Page>

@@ -6,10 +6,6 @@ import ClassHistory from '@/components/History/ClassHistory';
 import { CalculatorPageContainer, Page } from '@/styles/common';
 
 export default class ClassCalculatorPage extends Component {
-  constructor() {
-    super({});
-  }
-
   render() {
     return (
       <Page>

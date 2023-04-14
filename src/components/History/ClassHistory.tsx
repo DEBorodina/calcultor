@@ -21,7 +21,7 @@ class ClassHistory extends Component<ClassHistoryProps, ClassHistoryState> {
     };
   }
 
-  handleIsOpen = (): void => {
+  handleIsOpen = () => {
     this.setState({ isOpen: !this.state.isOpen });
   };
 

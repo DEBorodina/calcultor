@@ -15,7 +15,7 @@ const FunctionalHistory: React.FC = () => {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleIsOpen = (): void => {
+  const handleIsOpen = () => {
     setIsOpen(!isOpen);
   };
 

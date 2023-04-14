@@ -24,30 +24,28 @@ export default class ClassDropDown extends Component<
     this.menu = createRef();
   }
 
-  handleToggle = (): void => {
+  handleToggle = () => {
     this.setState(({ isOpen }) => ({
       isOpen: !isOpen,
     }));
   };
 
-  handleClickOutside = ({ target }: MouseEvent): void => {
+  handleClickOutside = ({ target }: MouseEvent) => {
     if (this.menu.current && !this.menu.current.contains(target as Node)) {
       this.setState({ isOpen: false });
     }
   };
 
-  onChooseOption =
-    (option: string): (() => void) =>
-    () => {
-      this.setState({ isOpen: false });
-      this.props.handleChooseOption(option);
-    };
+  onChooseOption = (option: string) => () => {
+    this.setState({ isOpen: false });
+    this.props.handleChooseOption(option);
+  };
 
-  componentDidMount(): void {
+  componentDidMount() {
     document.addEventListener('mousedown', this.handleClickOutside);
   }
 
-  componentWillUnmount(): void {
+  componentWillUnmount() {
     document.removeEventListener('mousedown', this.handleClickOutside);
   }
 
