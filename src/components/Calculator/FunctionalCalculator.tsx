@@ -4,7 +4,7 @@ import FunctionalDisplay from '@/components/Display/FunctionalDisplay';
 import FunctionalKeypad from '@/components/Keypad/FunctionalKeypad';
 import { addToFunctionalHistory } from '@/store/actions/historyActionCreators';
 import { getErrorMessage } from '@/utils/errorsHelper';
-import { intermediateFormater } from '@/utils/formater';
+import { intermediateFormatter } from '@/utils/formatter';
 import { useTypedDispatch } from '@/utils/hooks/useTypedDispatch';
 import { getResult } from '@/utils/solver';
 import { finalValidator, intermediateValidator } from '@/utils/validator';
@@ -34,7 +34,7 @@ const FunctionalCalculator: React.FC = () => {
     }
 
     if (newEquation.length <= MAX_LENGTH && intermediateValidator(newEquation))
-      setEquation(intermediateFormater(newEquation));
+      setEquation(intermediateFormatter(newEquation));
   };
 
   const handleEqualPress = (): void => {

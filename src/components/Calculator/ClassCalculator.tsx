@@ -5,7 +5,7 @@ import ClassDisplay from '@/components/Display/ClassDisplay';
 import ClassKeypad from '@/components/Keypad/FunctionalKeypad';
 import { addToClassHistory } from '@/store/actions/historyActionCreators';
 import { getErrorMessage } from '@/utils/errorsHelper';
-import { intermediateFormater } from '@/utils/formater';
+import { intermediateFormatter } from '@/utils/formatter';
 import { getResult } from '@/utils/solver';
 import { finalValidator, intermediateValidator } from '@/utils/validator';
 
@@ -46,7 +46,7 @@ class ClassCalculator extends Component<
     }
 
     if (newEquation.length <= MAX_LENGTH && intermediateValidator(newEquation))
-      this.setState({ equation: intermediateFormater(newEquation) });
+      this.setState({ equation: intermediateFormatter(newEquation) });
   };
 
   handleEqualPress = (): void => {

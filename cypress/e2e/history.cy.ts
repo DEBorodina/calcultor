@@ -1,4 +1,5 @@
-import { calculators } from '../constants';
+import { ROUTE_NAMES } from '../../src/constants/routesNames';
+import { calculators, settings } from '../constants';
 
 calculators.forEach(({ name, path }) => {
   describe(`Test ${name} history`, () => {
@@ -6,7 +7,7 @@ calculators.forEach(({ name, path }) => {
       cy.visit(path);
     });
 
-    it(`Inititaly history is empty`, () => {
+    it(`Initially history is empty`, () => {
       cy.get(`button[data-cy="history-button"]`).click();
       cy.get('p[data-cy="no-history"]').should('exist');
     });
@@ -19,7 +20,7 @@ calculators.forEach(({ name, path }) => {
     });
 
     it(`Doesn't add invalid expressions to history`, () => {
-      cy.typeExpression('1+2)=');
+      cy.typeExpression('1/0=');
       cy.get(`button[data-cy="history-button"]`).click();
       cy.get(`p[data-cy="no-history"]`).should('exist');
       cy.get(`ul[data-cy="history-list"]`).should('not.exist');
@@ -51,7 +52,7 @@ calculators.forEach(({ name, path }) => {
 
     it(`History remains after switching to another page`, () => {
       cy.typeExpression('1+2=');
-      cy.visit('/settings');
+      cy.visit(ROUTE_NAMES.FUNCTIONAL_SETTINGS);
       cy.visit(path);
       cy.get(`button[data-cy="history-button"]`).click();
       cy.get(`ul[data-cy="history-list"]`).contains('1+2=3');
@@ -71,37 +72,38 @@ calculators.forEach(({ name, path }) => {
 });
 
 describe('Test global history', () => {
-  it('FC calcultor history is not added to CC history', () => {
-    cy.visit('/fc-calculator');
+  it('FC calculator history is not added to CC history', () => {
+    cy.visit(ROUTE_NAMES.FUNCTIONAL_CALCULATOR);
     cy.typeExpression('1+2=');
-    cy.visit('/cc-calculator');
+    cy.visit(ROUTE_NAMES.CLASS_CALCULATOR);
     cy.get(`button[data-cy="history-button"]`).click();
     cy.get(`p[data-cy="no-history"]`).should('exist');
   });
 
-  it('CC calcultor history is not added to FC history', () => {
-    cy.visit('/cc-calculator');
+  it('CC calculator history is not added to FC history', () => {
+    cy.visit(ROUTE_NAMES.CLASS_CALCULATOR);
     cy.typeExpression('1+2=');
-    cy.visit('/fc-calculator');
+    cy.visit(ROUTE_NAMES.FUNCTIONAL_CALCULATOR);
     cy.get(`button[data-cy="history-button"]`).click();
     cy.get(`p[data-cy="no-history"]`).should('exist');
   });
 });
 
 describe('Test "clear all history" button clears both histories', () => {
-  it('FC calcultor history is not added to CC history', () => {
-    cy.visit('/fc-calculator');
-    cy.typeExpression('1+2=');
-    cy.visit('/cc-calculator');
-    cy.typeExpression('1+2=');
-    cy.visit('/settings');
-    cy.get('button').contains('Clear all history').click();
-    cy.visit('/fc-calculator');
-    cy.get(`button[data-cy="history-button"]`).click();
-    cy.get(`p[data-cy="no-history"]`).should('exist');
-    cy.visit('/cc-calculator');
-    cy.get(`button[data-cy="history-button"]`).click();
-    cy.get(`p[data-cy="no-history"]`).should('exist');
-    cy.visit('/settings');
+  settings.forEach(({ name, path }) => {
+    it(`"clear all history" at ${name} page clears both histories`, () => {
+      cy.visit(ROUTE_NAMES.FUNCTIONAL_CALCULATOR);
+      cy.typeExpression('1+2=');
+      cy.visit(ROUTE_NAMES.CLASS_CALCULATOR);
+      cy.typeExpression('1+2=');
+      cy.visit(path);
+      cy.get('button').contains('Clear all history').click();
+      cy.visit(ROUTE_NAMES.FUNCTIONAL_CALCULATOR);
+      cy.get(`button[data-cy="history-button"]`).click();
+      cy.get(`p[data-cy="no-history"]`).should('exist');
+      cy.visit(ROUTE_NAMES.CLASS_CALCULATOR);
+      cy.get(`button[data-cy="history-button"]`).click();
+      cy.get(`p[data-cy="no-history"]`).should('exist');
+    });
   });
 });
