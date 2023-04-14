@@ -1,21 +1,30 @@
-import { ArrowDown } from '@/styles/common';
 import styled, { css } from 'styled-components';
 
+import { ArrowDown } from '@/styles/common';
+
 export const ScrollWrapper = css`
-  overflow-y: scroll;
+  overflow: scroll;
   position: relative;
+
   &::-webkit-scrollbar {
-    width: 10px;
+    width: 17px;
+    height: 17px;
   }
+
   &::-webkit-scrollbar-thumb {
     background-color: ${(props): string => props.theme.mainColor};
-    width: 10px;
-    border-radius: 5px;
+    border-left: 10px solid rgba(0, 0, 0, 0);
+    border-top: 10px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: rgba(0, 0, 0, 0);
   }
 `;
 
 export const History = styled.div`
-  padding: 20px 20px 20px 20px;
+  padding-top: 20px;
   height: calc(100vh - 70px);
   width: 100%;
   grid-area: sd;
@@ -24,9 +33,10 @@ export const History = styled.div`
   align-items: center;
   border-left: 1px solid ${(props): string => props.theme.mainColor};
   color:${(props) => props.theme.fontColor};
-  @media (max-width: 540px) {
-    border-left: none;
+
+  @media (max-width: 700px) {
     height: fit-content;
+    border-left: none;
   }
 }
 `;
@@ -44,15 +54,24 @@ export const ShowButton = styled.button`
   font-size: 24px;
   color: ${(props) => props.theme.fontColor};
   background-color: ${(props): string => props.theme.backgroundColor};
+
   &:hover {
     cursor: pointer;
   }
+
   ${ArrowDown}
 `;
 
 export const HistoryList = styled.ul`
-  width: 90%;
+  display: grid;
+  grid-auto-rows: min-content;
+  width: 100%;
   height: 90%;
+  padding-left: 20px;
+
+  @media (max-width: 700px) {
+    height: fit-content;
+  }
 `;
 
 export const HistoryListItem = styled.li`

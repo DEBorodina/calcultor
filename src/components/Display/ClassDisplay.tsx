@@ -1,4 +1,5 @@
 import { Component } from 'react';
+
 import { CurrentData, Display, PreviousData } from './styles';
 import { DisplayProps } from './types';
 
@@ -8,13 +9,14 @@ export default class ClassDisplay extends Component<DisplayProps> {
   }
 
   render() {
+    const { result, errors, equation } = this.props;
+    const resultToPrint = result ? '=' + result : result;
+
     return (
       <Display>
-        <PreviousData>
-          {this.props.result ? this.props.equation : ''}
-        </PreviousData>
+        <PreviousData>{result || errors ? equation : ''}</PreviousData>
         <CurrentData data-cy="current-display">
-          {this.props.result || this.props.equation || 0}
+          {errors || resultToPrint || equation || ''}
         </CurrentData>
       </Display>
     );

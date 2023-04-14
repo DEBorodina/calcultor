@@ -18,7 +18,7 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  color: #ffffff;
+  color: ${(props): string => props.theme.headerTextColor};
   opacity: 0.9;
   font-weight: 300;
   width: 20%;

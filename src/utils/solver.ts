@@ -1,3 +1,5 @@
+import { keys } from '@/constants/keys';
+
 import { Calculator } from './Calculator';
 import {
   AddCommand,
@@ -5,7 +7,7 @@ import {
   MultiplyCommand,
   SubtractCommand,
 } from './commands';
-import { formatToPrint } from './formater';
+import { resultFormatter } from './formatter';
 import { isNumeric } from './validator';
 
 const findNewIndexAfterBracket = (equation: string, index: number): number => {
@@ -24,7 +26,7 @@ const findNewIndexAfterBracket = (equation: string, index: number): number => {
 };
 
 export const getResult = (equation: string): string => {
-  return formatToPrint(equationSolver(equation, 0));
+  return resultFormatter(equationSolver(equation, 0));
 };
 
 const equationSolver = (equation: string, currentIndex: number): number => {
@@ -40,7 +42,7 @@ const equationSolver = (equation: string, currentIndex: number): number => {
       currentNumber += equation[index];
     }
 
-    if (equation[index] === '(') {
+    if (equation[index] === keys[16]) {
       currentNumber = equationSolver(equation, index + 1);
       index = findNewIndexAfterBracket(equation, index);
     }
@@ -49,16 +51,16 @@ const equationSolver = (equation: string, currentIndex: number): number => {
       const int = +currentNumber;
 
       switch (sign) {
-        case '+':
+        case keys[10]:
           calculator.executeCommand(new AddCommand(int));
           break;
-        case '-':
+        case keys[5]:
           calculator.executeCommand(new SubtractCommand(int));
           break;
-        case '*':
+        case keys[4]:
           calculator.executeCommand(new MultiplyCommand(int));
           break;
-        case '/':
+        case keys[9]:
           calculator.executeCommand(new DivideCommand(int));
           break;
       }
@@ -67,7 +69,7 @@ const equationSolver = (equation: string, currentIndex: number): number => {
       currentNumber = '';
     }
 
-    if (equation[index] === ')') {
+    if (equation[index] === keys[18]) {
       return calculator.result();
     }
   }

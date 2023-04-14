@@ -1,12 +1,12 @@
-import { theme, themes } from '@/constants/themes';
-import { GlobalStore } from '@/store/types';
-import { useSelector } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
+
+import { theme, themes } from '@/constants/themes';
+import { useTypedSelector } from '@/hooks/';
 
 const GlobalThemProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const theme: theme = useSelector((state: GlobalStore) => state.theme.theme);
+  const theme: theme = useTypedSelector((state) => state.theme.theme);
 
   return <ThemeProvider theme={themes[theme]}>{children}</ThemeProvider>;
 };

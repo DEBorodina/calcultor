@@ -9,8 +9,13 @@ export default createGlobalStyle`
     text-decoration: none;
     font-family: 'Helvetica Neue', sans-serif;
     font-size: 24px;
+
     @media (max-width: 540px) {
-    font-size: 20px;
+      font-size: 20px;
+    }
+
+    @media (max-width: 320px) {
+      font-size: 16px;
     }
   }
 `;

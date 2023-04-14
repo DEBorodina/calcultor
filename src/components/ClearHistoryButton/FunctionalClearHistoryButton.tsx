@@ -1,12 +1,13 @@
 import React from 'react';
-import { SettingsButton } from '@/styles/common';
-import { useDispatch } from 'react-redux';
+
+import { useTypedDispatch } from '@/hooks/';
 import { clearAllHistory } from '@/store/actions/historyActionCreators';
+import { SettingsButton } from '@/styles/common';
 
 const ClearHistoryButton: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useTypedDispatch();
 
-  const handleClick = (): void => {
+  const handleClick = () => {
     dispatch(clearAllHistory());
   };
 

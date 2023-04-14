@@ -1,4 +1,5 @@
 import { Component } from 'react';
+
 import { Key } from './styles';
 import { KeyProps } from './types';
 

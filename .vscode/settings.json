@@ -1,4 +1,11 @@
 {
-    "typescript.tsdk": "node_modules/typescript/lib",
-    
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "spellright.language": ["en-US-10-1."],
+  "spellright.documentTypes": [
+    "markdown",
+    "latex",
+    "plaintext",
+    "typescriptreact",
+    "typescript"
+  ]
 }

@@ -1,18 +1,17 @@
 import { Component } from 'react';
-import { Action, AnyAction, Dispatch } from 'redux';
-import { ConnectedProps, connect } from 'react-redux';
-import { Container } from './styles';
+import { connect, ConnectedProps } from 'react-redux';
+
 import ClassDisplay from '@/components/Display/ClassDisplay';
 import ClassKeypad from '@/components/Keypad/FunctionalKeypad';
-import { validateEquation } from '@/utils/validator';
 import { addToClassHistory } from '@/store/actions/historyActionCreators';
-import { MAX_LENGHT, getErrorMessage } from './FunctionalCalculator';
+import { getErrorMessage } from '@/utils/errorsHelper';
+import { intermediateFormatter } from '@/utils/formatter';
 import { getResult } from '@/utils/solver';
+import { finalValidator, intermediateValidator } from '@/utils/validator';
 
-interface ClassCalculatorState {
-  result: string;
-  equation: string;
-}
+import { MAX_LENGTH } from './FunctionalCalculator';
+import { Container } from './styles';
+import { ClassCalculatorState } from './types';
 
 class ClassCalculator extends Component<
   ClassCalculatorProps,
@@ -24,35 +23,50 @@ class ClassCalculator extends Component<
     this.state = {
       result: '',
       equation: '',
+      errors: '',
     };
   }
 
-  handleKeyPress = (key: string): void => {
-    if (this.state.result) {
-      this.setState({ equation: '' });
-      this.setState({ result: '' });
+  handleKeyPress = (key: string) => {
+    let newEquation: string;
+
+    if (this.state.errors) {
+      newEquation = this.state.equation + key;
+      if (intermediateValidator(newEquation)) this.setState({ errors: '' });
+    } else if (this.state.result) {
+      newEquation = this.state.result + key;
+      if (intermediateValidator(newEquation)) this.setState({ result: '' });
+    } else {
+      newEquation = this.state.equation + key;
     }
-    if ((this.state.equation + key).length <= MAX_LENGHT)
-      this.setState(({ equation }) => ({
-        equation: equation + key,
-      }));
+
+    if (newEquation.length <= MAX_LENGTH && intermediateValidator(newEquation))
+      this.setState({ equation: intermediateFormatter(newEquation) });
   };
 
-  handleEqualPress = (): void => {
+  handleEqualPress = () => {
     if (this.state.equation != '') {
       try {
-        validateEquation(this.state.equation);
-        const resValue: string = getResult(this.state.equation);
-        this.setState({ result: '=' + resValue });
-        this.props.addToClassHistory(this.state.equation + '=' + resValue);
+        finalValidator(this.state.equation);
+
+        const resultValue: string = getResult(this.state.equation);
+        this.setState({ result: resultValue });
+
+        this.props.addToClassHistory(this.state.equation + '=' + resultValue);
       } catch (e) {
-        this.setState({ result: getErrorMessage(e) });
+        this.setState({ errors: getErrorMessage(e) });
       }
     }
   };
 
-  handleCPress = (): void => {
-    if (!this.state.result && this.state.equation.length > 0) {
+  handleCPress = () => {
+    this.setState({ errors: '' });
+
+    if (
+      !this.state.errors &&
+      !this.state.result &&
+      this.state.equation.length > 0
+    ) {
       this.setState({
         equation: this.state.equation.slice(0, this.state.equation.length - 1),
       });
@@ -61,8 +75,8 @@ class ClassCalculator extends Component<
     }
   };
 
-  handleCEPress = (): void => {
-    this.setState({ result: '', equation: '' });
+  handleCEPress = () => {
+    this.setState({ result: '', equation: '', errors: '' });
   };
 
   render() {
@@ -71,6 +85,7 @@ class ClassCalculator extends Component<
         <ClassDisplay
           equation={this.state.equation}
           result={this.state.result}
+          errors={this.state.errors}
         ></ClassDisplay>
         <ClassKeypad
           handleCEPress={this.handleCEPress}
@@ -83,10 +98,9 @@ class ClassCalculator extends Component<
   }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({
-  addToClassHistory: (history: string) =>
-    dispatch<AnyAction>(addToClassHistory(history)),
-});
+const mapDispatchToProps = {
+  addToClassHistory,
+};
 
 const connector = connect(null, mapDispatchToProps);
 

@@ -1,33 +1,37 @@
-import {
-  ADD_TO_FUNC_HISTORY,
-  CLEAR_HISTORY,
-  ADD_TO_CLASS_HISTORY,
-  CHANGE_THEME,
-} from '@/constants/actions';
 import { theme } from '@/constants/themes';
 
+export enum HistoryActionTypes {
+  CLEAR_HISTORY = 'CLEAR_HISTORY',
+  ADD_TO_FUNC_HISTORY = 'ADD_TO_FUNC_HISTORY',
+  ADD_TO_CLASS_HISTORY = 'ADD_TO_CLASS_HISTORY',
+}
+
+export enum ThemeActionTypes {
+  CHANGE_THEME = 'CHANGE_THEME',
+}
+
 export interface ClearAllHistoryAction {
-  type: typeof CLEAR_HISTORY;
+  type: typeof HistoryActionTypes.CLEAR_HISTORY;
 }
 
 export interface AddToFunctionalHistoryAction {
-  type: typeof ADD_TO_FUNC_HISTORY;
+  type: typeof HistoryActionTypes.ADD_TO_FUNC_HISTORY;
   payload: string;
 }
 
 export interface AddToClassHistoryAction {
-  type: typeof ADD_TO_CLASS_HISTORY;
+  type: typeof HistoryActionTypes.ADD_TO_CLASS_HISTORY;
   payload: string;
 }
 
 export interface ChangeThemeAction {
-  type: typeof CHANGE_THEME;
+  type: ThemeActionTypes.CHANGE_THEME;
   payload: theme;
 }
 
-export type HistoryActionTypes =
+export type HistoryActions =
   | AddToClassHistoryAction
   | AddToFunctionalHistoryAction
   | ClearAllHistoryAction;
 
-export type ThemeActionTypes = ChangeThemeAction;
+export type ThemeActions = ChangeThemeAction;

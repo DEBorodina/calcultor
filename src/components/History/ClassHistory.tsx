@@ -1,4 +1,8 @@
 import { Component } from 'react';
+import { connect, ConnectedProps } from 'react-redux';
+
+import { RootState } from '@/store/reducers';
+
 import {
   HistoryList,
   HistoryListItem,
@@ -6,33 +10,37 @@ import {
   ShowButton,
   Text,
 } from './styles';
-import { ConnectedProps, connect } from 'react-redux';
 import { ClassHistoryState } from './types';
-import { GlobalStore } from '@/store/types';
 
 class ClassHistory extends Component<ClassHistoryProps, ClassHistoryState> {
   constructor(props: ClassHistoryProps) {
     super(props);
+
     this.state = {
       isOpen: false,
     };
   }
 
-  handleIsOpen = (): void => {
+  handleIsOpen = () => {
     this.setState({ isOpen: !this.state.isOpen });
   };
 
   render() {
+    const { history } = this.props;
+    const { isOpen } = this.state;
+
     return (
       <HistoryWithScroll>
         <ShowButton onClick={this.handleIsOpen} data-cy="history-button">
           History
         </ShowButton>
-        {this.state.isOpen &&
-          (this.props.history.length > 0 ? (
+        {isOpen &&
+          (history.length > 0 ? (
             <HistoryList data-cy="history-list">
-              {this.props.history.map((item, index) => (
-                <HistoryListItem key={index}>{item}</HistoryListItem>
+              {history.map((item, index) => (
+                <HistoryListItem key={`history-list-item__${index}`}>
+                  {item}
+                </HistoryListItem>
               ))}
             </HistoryList>
           ) : (
@@ -43,7 +51,7 @@ class ClassHistory extends Component<ClassHistoryProps, ClassHistoryState> {
   }
 }
 
-const mapStateToProps = (state: GlobalStore) => ({
+const mapStateToProps = (state: RootState) => ({
   history: state.history.classHistory,
 });
 

@@ -1,33 +1,32 @@
 import React from 'react';
-import DropDown from '../DropDown';
-import { Option } from '../DropDown/types';
+
 import { theme, themes } from '@/constants/themes';
-import { useSelector, useDispatch } from 'react-redux';
+import { useTypedDispatch, useTypedSelector } from '@/hooks/';
 import { changeTheme } from '@/store/actions/themeActionCreators';
-import { GlobalStore } from '@/store/types';
+
+import FunctionalDropDown from '../DropDown/FunctionalDropDown';
+import { Option } from '../DropDown/types';
 
 const ThemesMenu: React.FC = () => {
-  const currentTheme: theme = useSelector(
-    (state: GlobalStore) => state.theme.theme
-  );
+  const currentTheme: theme = useTypedSelector((state) => state.theme.theme);
 
   const themesNames: Option[] = Object.keys(themes).map((theme) => ({
     option: theme,
     isActive: theme === currentTheme,
   }));
 
-  const dispatch = useDispatch();
+  const dispatch = useTypedDispatch();
 
-  const handleSetTheme = (theme: theme) => {
-    dispatch(changeTheme(theme));
+  const handleSetTheme = (option: string) => {
+    dispatch(changeTheme(option as theme));
   };
 
   return (
-    <DropDown
+    <FunctionalDropDown
       options={themesNames}
       label={'Choose theme'}
       handleChooseOption={handleSetTheme}
-    ></DropDown>
+    ></FunctionalDropDown>
   );
 };
 

@@ -1,15 +1,3 @@
-import { theme } from '@/constants/themes';
+import { store } from './index';
 
-export interface ThemeState {
-  theme: theme;
-}
-
-export interface HistoryState {
-  funcHistory: string[];
-  classHistory: string[];
-}
-
-export interface GlobalStore {
-  history: HistoryState;
-  theme: ThemeState;
-}
+export type AppDispatch = typeof store.dispatch;

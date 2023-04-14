@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
+
+import { useTypedSelector } from '@/hooks/';
+
 import {
   HistoryList,
   HistoryListItem,
@@ -6,17 +9,13 @@ import {
   ShowButton,
   Text,
 } from './styles';
-import { useSelector } from 'react-redux';
-import { GlobalStore } from '@/store/reducers';
 
 const FunctionalHistory: React.FC = () => {
-  const history: string[] = useSelector(
-    (state: GlobalStore) => state.history.funcHistory
-  );
+  const history = useTypedSelector((state) => state.history.funcHistory);
 
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleIsOpen = (): void => {
+  const handleIsOpen = () => {
     setIsOpen(!isOpen);
   };
 
@@ -29,7 +28,9 @@ const FunctionalHistory: React.FC = () => {
         (history.length > 0 ? (
           <HistoryList data-cy="history-list">
             {history.map((item, index) => (
-              <HistoryListItem key={index}>{item}</HistoryListItem>
+              <HistoryListItem key={`history-list-item__${index}`}>
+                {item}
+              </HistoryListItem>
             ))}
           </HistoryList>
         ) : (
@@ -39,4 +40,4 @@ const FunctionalHistory: React.FC = () => {
   );
 };
 
-export default FunctionalHistory;
+export default memo(FunctionalHistory);
